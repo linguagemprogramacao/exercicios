@@ -16,15 +16,15 @@ void Empresa::setCNPJ(string CNPJ) {
 	this->CNPJ = CNPJ;
 }
 
-list<Funcionario> Empresa::getFuncionarios() {
+list<Funcionario * >& Empresa::getFuncionarios() {
 	return this->funcionarios;
 }
 
-void Empresa::setFuncionarios(list<Funcionario> funcionarios) {
+void Empresa::setFuncionarios(list<Funcionario * > funcionarios) {
 	this->funcionarios = funcionarios;
 }
 
-void Empresa::addFuncionario(Funcionario funcionario) {
+void Empresa::addFuncionario(Funcionario * funcionario) {
 	this->funcionarios.push_back(funcionario);
 }
 

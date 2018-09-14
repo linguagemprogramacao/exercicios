@@ -11,11 +11,14 @@
 
 class EmpresaController {
 
-public:
-	void criarEmpresa(Empresa &empresa);
-	void addFuncionario(Empresa &empresa);
-	void listarFuncionario(Empresa &empresa);
+private:
+	Empresa empresa;
 
+public:
+	void criarEmpresa();
+	void addFuncionario();
+	void listarFuncionario();
+	void run();
 };
 
 

@@ -26,9 +26,10 @@ public:
 	void setSalario(float salario);
 
 	Funcionario();
+	Funcionario(string nome, float salario);
 	
-	friend istream& operator>> (std::istream &i, Funcionario &funcionario);
-	friend ostream& operator<< (ostream &o, Funcionario const &funcionario);
+	friend istream& operator>> (std::istream &i, Funcionario * funcionario);
+	//friend ostream& operator<< (ostream &o, Funcionario * const &funcionario);
 };
 
 

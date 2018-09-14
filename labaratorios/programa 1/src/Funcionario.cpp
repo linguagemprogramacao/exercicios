@@ -24,22 +24,27 @@ void Funcionario::setSalario(float salario) {
 
 Funcionario::Funcionario() {
 	this->nome = "";
-	this->salario = 0;
+	this->salario = 0.0;
+}
+
+Funcionario::Funcionario(string nome, float salario) {
+	this->nome = nome;
+	this->salario = salario;
 	countFuncionarios++;
 }
 
-istream& operator>> (istream &i, Funcionario &funcionario) {
+istream& operator>> (istream &i, Funcionario * funcionario) {
 	
 	i.ignore(1, '\n');
-	getline(i, funcionario.nome);
+	getline(i, funcionario->nome);
 
-	i >> funcionario.salario;
+	i >> funcionario->salario;
 	return i;
 }
-
+/*
 ostream& operator<< (ostream &o, Funcionario const &funcionario) {
 	
 	o << "\nNome: " << funcionario.nome << endl << "Salario: " << funcionario.salario;
 
 	return o;
-}
+}*/
