@@ -23,7 +23,7 @@ public:
 	string& getNome();
 	void setNome(string nome);
 
-	float getSalario();
+	float& getSalario();
 	void setSalario(float salario);
 
 	Funcionario();

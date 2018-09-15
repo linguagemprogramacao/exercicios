@@ -20,6 +20,8 @@ public:
 
 	list<Funcionario *> funcionarios;
 
+	static int countEmpresas;
+
 	string getNome();
 	void setNome(string nome);
 
@@ -31,6 +33,9 @@ public:
 
 	void addFuncionario(Funcionario * funcionario);
 	Empresa();
+	Empresa(string nome, string CNPJ);
+
+	bool operator==(Empresa &empresa) const;
 };
 
 #endif

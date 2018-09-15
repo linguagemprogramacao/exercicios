@@ -13,14 +13,18 @@
 class EmpresaController {
 
 private:
-	Empresa empresa;
+	list<Empresa *> empresas;
 
 public:
 	void criarEmpresa();
 	void addFuncionario();
 	void listarFuncionario();
-	bool existeFuncionario(Funcionario * funcionario);
+	bool existeFuncionario(list<Funcionario *> funcionarios, Funcionario * funcionario);
+	void listarEmpresas();
+	void darAumento();
 	void run();
+
+	bool existeEmpresa(Empresa * empresa);
 };
 
 

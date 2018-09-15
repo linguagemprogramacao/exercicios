@@ -14,7 +14,7 @@ void Funcionario::setNome(string nome) {
 	this->nome = nome;
 }
 
-float Funcionario::getSalario() {
+float &Funcionario::getSalario() {
 	return this->salario;
 }
 
@@ -30,11 +30,10 @@ Funcionario::Funcionario() {
 Funcionario::Funcionario(string nome, float salario) {
 	this->nome = nome;
 	this->salario = salario;
-	countFuncionarios++;
 }
 
 istream& operator>> (istream &i, Funcionario * funcionario) {
-	
+	cout << "Informe os dados do funcionario: ";
 	cout << "Nome: ";
 
 	i.ignore(1, '\n');
@@ -48,7 +47,7 @@ istream& operator>> (istream &i, Funcionario * funcionario) {
 
 ostream& operator<< (ostream &o, Funcionario * const funcionario) {
 	
-	o << "\nNome: " << funcionario->nome << endl << "Salario: " << funcionario->salario;
+	o <<fixed<< "\nNome: " << funcionario->nome << endl << "Salario: " << funcionario->salario << endl;
 
 	return o;
 }

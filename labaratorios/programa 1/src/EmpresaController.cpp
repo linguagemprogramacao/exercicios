@@ -11,9 +11,12 @@ void EmpresaController::run() {
 
 		cout << "Opções: " << endl << 
 			"(1) Cadastrar Empresa" << endl <<
-			"(2) Adicionar Funcionario" << endl <<
-			"(3) Listar Funcionario" << endl <<
-			"(4) - Sair" << endl;
+			"(2) Listar Empresas" << endl <<
+			"(3) Adicionar Funcionario" << endl <<
+			"(4) Listar Funcionario" << endl <<
+			"(5) Dar Aumento" << endl <<
+			"(6) Média de funcionarios" << endl <<
+			"(7) - Sair" << endl;
 
 		cin >>  opt;
 
@@ -25,14 +28,26 @@ void EmpresaController::run() {
 				break;
 
 			case '2':
-				addFuncionario();
+				listarEmpresas();
 				break;
 
 			case '3':
+				addFuncionario();
+				break;
+
+			case '4':
 				listarFuncionario();
 				break;
-				
-			case '4':
+
+			case '5':
+				darAumento();
+				break;
+
+			case '6':
+				listarFuncionario();
+				break;
+
+			case '7':
 				sair = true;
 				break;
 
@@ -58,41 +73,155 @@ void EmpresaController::criarEmpresa() {
 	cout << "CNPJ da Empresa (Apenas numeroa): ";
 	cin >> CNPJ;
 
-	this->empresa.setNome(nomeEmpresa);
-	this->empresa.setCNPJ(CNPJ);
+
+	Empresa * e = new Empresa();
+
+	e->setNome(nomeEmpresa);
+	e->setCNPJ(CNPJ);
+
+	if(existeEmpresa(e)) { 
+		cout << "\nJa existe uma empresa com o CNPJ informado" << endl << endl;
+	} else {
+		this->empresas.push_back(e);
+		Empresa::countEmpresas++;
+		cout << "Empresa criada com sucesso" << endl << endl;
+	}
 
 	
-	cout << "Empresa criada com sucesso" << endl << endl;
 
 }
+
+void EmpresaController::listarEmpresas() {
+
+	if (this->empresas.size() > 0) {
+
+		list<Empresa *>::iterator itEmpresa = this->empresas.begin();
+		int a = 1;
+
+		for(;itEmpresa != this->empresas.end(); itEmpresa++, a++) {
+			cout << "(" << a << ") - " << (*itEmpresa)->getNome() << " (" << (*itEmpresa)->getCNPJ() <<") " << endl;
+		 }
+	} else {
+		cout << "\nNenhuma empresa cadastrada.\n\n";
+	}
+}
+
+
+bool EmpresaController::existeEmpresa(Empresa * empresa) {
+
+	list<Empresa *>::iterator itEmpresa = this->empresas.begin();
+
+	for(;itEmpresa != this->empresas.end(); itEmpresa++) {
+
+		// Não para para comparar Funcionario * fazendo sobrecarga de operadores. por isso é necessário criar variaveis temporarias
+		Empresa e1((*itEmpresa)->getNome(), (*itEmpresa)->getCNPJ());
+		Empresa e2(empresa->getNome(), empresa->getCNPJ());
+
+	 	if(e1 == e2) {
+	 		return true;
+	 	}
+
+	}
+
+	 return false;
+}
+
 
 
 void EmpresaController::addFuncionario() {
 
-	Funcionario * funcionario = new Funcionario();
-	cin >> funcionario;
+	if (this->empresas.size() > 0) {
 
-	if(existeFuncionario(funcionario)) {
-		cout << "Já existe um funcinario com o nome informado.\n";
+		size_t iopt = -1;
+
+		list<Empresa *>::iterator itEmpresa;
+
+
+		//system("clear");
+		while(iopt != 0) {
+
+			cout << "\nEmpresas cadastradas:\n(0) - Voltar\n";
+			listarEmpresas();
+			cout <<"Informe a empresa que deseja adicionar o funcionario: ";
+
+			cin >>  iopt;
+
+			if(iopt > 0 and iopt <= this->empresas.size()) {
+
+				itEmpresa = this->empresas.begin();
+				advance(itEmpresa,(iopt - 1));
+
+				Funcionario * funcionario = new Funcionario();
+				cin >> funcionario;
+				if(existeFuncionario((*itEmpresa)->getFuncionarios(), funcionario)) {
+				  	cout << "Já existe um funcinario com o nome informado.\n";
+				} else {
+				  	(*itEmpresa)->getFuncionarios().push_back(funcionario);
+				  	Funcionario::countFuncionarios++;
+				}
+
+
+			} else if (iopt < 0 or iopt > this->empresas.size()){
+				cout << "Valor invalido.\n";
+			}
+		}
+
 	} else {
-		this->empresa.getFuncionarios().push_back(funcionario);
+		cout << "\nNenhuma empresa cadastrada.\n\n";
 	}
+
 }
 
 void EmpresaController::listarFuncionario() {
 
-	list<Funcionario *>::iterator itFuncionario = this->empresa.getFuncionarios().begin();
-	
-	for(;itFuncionario != this->empresa.getFuncionarios().end(); itFuncionario++) {
-		cout << (*itFuncionario);
-	 }
+
+	if (this->empresas.size() > 0) {
+
+		size_t iopt = -1;
+
+		list<Empresa *>::iterator itEmpresa;
+
+		//system("clear");
+		while(iopt != 0) {
+
+			cout << "\nEmpresas cadastradas:\n(0) - Voltar\n";
+			listarEmpresas();
+			cout <<"Informe a empresa que deseja listar seus funcionarios: ";
+
+			cin >>  iopt;
+
+			if(iopt > 0 and iopt <= this->empresas.size()) {
+
+				itEmpresa = this->empresas.begin();
+				advance(itEmpresa,(iopt - 1));
+				
+				if ((*itEmpresa)->getFuncionarios().size() > 0) {
+					list<Funcionario *>::iterator itFuncionario = (*itEmpresa)->getFuncionarios().begin();
+					for(;itFuncionario != (*itEmpresa)->getFuncionarios().end(); itFuncionario++) {
+				 		cout << (*itFuncionario);
+					}
+				} else {
+					cout << "\nNão existe funcioraios cadastrados para essa empresa.\n";
+				}
+				
+
+
+			} else if (iopt < 0 or iopt > this->empresas.size()){
+				cout << "Valor invalido.\n";
+			}
+		}
+
+	} else {
+		cout << "\nNenhuma empresa cadastrada.\n\n";
+	}
 }
 
-bool EmpresaController::existeFuncionario(Funcionario * funcionario) {
 
-	list<Funcionario *>::iterator itFuncionario = this->empresa.getFuncionarios().begin();
+bool EmpresaController::existeFuncionario(list<Funcionario *> funcionarios, Funcionario * funcionario) {
 
-	for(;itFuncionario != this->empresa.getFuncionarios().end(); itFuncionario++) {
+	list<Funcionario *>::iterator itFuncionario = funcionarios.begin();
+
+	for(;itFuncionario != funcionarios.end(); itFuncionario++) {
 
 		// Não para para comparar Funcionario * fazendo sobrecarga de operadores. por isso é necessário criar variaveis temporarias
 		Funcionario f1((*itFuncionario)->getNome(), (*itFuncionario)->getSalario());
@@ -101,9 +230,62 @@ bool EmpresaController::existeFuncionario(Funcionario * funcionario) {
 	 	if(f1 == f2) {
 	 		return true;
 	 	}
-
 	}
-
-	 return false;
+	return false;
 }
+
+
+void EmpresaController::darAumento() {
+
+	if (this->empresas.size() > 0) {
+
+		size_t iopt = -1;
+
+		list<Empresa *>::iterator itEmpresa;
+
+
+		//system("clear");
+		while(iopt != 0) {
+
+			cout << "\nSeleciona a empresa na qual estão os funcinario que vão receber aumento:\n(0) - Voltar\n";
+			listarEmpresas();
+			cout <<"Informe a empresa que deseja adicionar o funcionario: ";
+
+			cin >>  iopt;
+
+			if(iopt > 0 and iopt <= this->empresas.size()) {
+
+				itEmpresa = this->empresas.begin();
+				advance(itEmpresa,(iopt - 1));
+
+				if((*itEmpresa)->getFuncionarios().size() > 0) {
+					float aumento = 0;
+
+				  	cout <<"Informe o aumento desejado (%): ";
+					cin >>  aumento;
+					
+
+					list<Funcionario *>::iterator itFuncionario = (*itEmpresa)->getFuncionarios().begin();
+
+					for(;itFuncionario != (*itEmpresa)->getFuncionarios().end(); itFuncionario++) {
+
+						(*itFuncionario)->setSalario((*itFuncionario)->getSalario() * ((aumento/100.00) + 1));
+
+					}
+					cout << "\nO aumento de " << aumento << " foi consedido.\n";
+
+				} else {
+				  	cout << "\nNão existe funcioraios cadastrados para essa empresa.\n";
+				}
+			} else if (iopt < 0 or iopt > this->empresas.size()){
+				cout << "Valor invalido.\n";
+			}
+		}
+	} else {
+		cout << "\nNenhuma empresa cadastrada.\n\n";
+	}
+}
+
+
+
 

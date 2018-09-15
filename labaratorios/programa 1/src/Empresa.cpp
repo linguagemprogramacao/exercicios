@@ -1,5 +1,7 @@
 #include "Empresa.h"
 
+int Empresa::countEmpresas = 0;
+
 string Empresa::getNome() {
 	return this->nome;
 }
@@ -31,6 +33,21 @@ void Empresa::addFuncionario(Funcionario * funcionario) {
 Empresa::Empresa() {
 	this->nome = "";
 	this->CNPJ = "";
+}
+
+Empresa::Empresa(string nome, string CNPJ) {
+	this->nome = nome;
+	this->CNPJ = CNPJ;
+}
+
+bool Empresa::operator== (Empresa &empresa) const{
+
+	if(this->CNPJ.compare(empresa.getCNPJ()) == 0) {
+		return true;
+	} else {
+		return false;
+	}
+
 }
 
 
