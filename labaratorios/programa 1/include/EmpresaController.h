@@ -22,6 +22,7 @@ public:
 	bool existeFuncionario(list<Funcionario *> funcionarios, Funcionario * funcionario);
 	void listarEmpresas();
 	void darAumento();
+	void porcentagem();
 	void run();
 
 	bool existeEmpresa(Empresa * empresa);

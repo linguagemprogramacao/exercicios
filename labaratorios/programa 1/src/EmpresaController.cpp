@@ -44,7 +44,7 @@ void EmpresaController::run() {
 				break;
 
 			case '6':
-				listarFuncionario();
+				porcentagem();
 				break;
 
 			case '7':
@@ -286,6 +286,15 @@ void EmpresaController::darAumento() {
 	}
 }
 
+void EmpresaController::porcentagem(){
 
+	if(Empresa::countEmpresas > 0) { // evita divisão por 0
+		cout << "A porcentagem de funcionarios por empresa é de: "  << Funcionario::countFuncionarios/Empresa::countEmpresas;
+	} else {
+		cout << "\nNenhuma empresa cadastrada.\n\n";
+	}
+
+
+}
 
 

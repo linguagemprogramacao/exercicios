@@ -33,7 +33,7 @@ Funcionario::Funcionario(string nome, float salario) {
 }
 
 istream& operator>> (istream &i, Funcionario * funcionario) {
-	cout << "Informe os dados do funcionario: ";
+	cout << "Informe os dados do funcionario: \n";
 	cout << "Nome: ";
 
 	i.ignore(1, '\n');
