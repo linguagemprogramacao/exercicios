@@ -4,6 +4,7 @@
 #include <string>
 #include <iostream>
 #include <ostream>
+#include <algorithm>
 
 using namespace std;
 
@@ -19,7 +20,7 @@ public:
 
 	int getCountFuncionarios();
 
-	string getNome();
+	string& getNome();
 	void setNome(string nome);
 
 	float getSalario();
@@ -29,7 +30,9 @@ public:
 	Funcionario(string nome, float salario);
 	
 	friend istream& operator>> (std::istream &i, Funcionario * funcionario);
-	//friend ostream& operator<< (ostream &o, Funcionario * const &funcionario);
+	friend ostream& operator<< (ostream &o, Funcionario * const funcionario);
+	bool operator==(Funcionario &funcionaro) const;
+
 };
 
 

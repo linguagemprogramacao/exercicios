@@ -5,6 +5,7 @@
 #include <list>
 #include <iostream>
 
+
 #include "../include/Funcionario.h"
 #include "../include/Empresa.h"
 
@@ -18,6 +19,7 @@ public:
 	void criarEmpresa();
 	void addFuncionario();
 	void listarFuncionario();
+	bool existeFuncionario(Funcionario * funcionario);
 	void run();
 };
 

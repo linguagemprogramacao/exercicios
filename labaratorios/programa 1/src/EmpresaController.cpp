@@ -1,67 +1,5 @@
 #include "EmpresaController.h"
 
-void EmpresaController::criarEmpresa() {
-
-	string nomeEmpresa;
-	string CNPJ;
-
-	cin.ignore(1, '\n');
-	cout << "Nome da Empresa: ";
-	getline(cin, nomeEmpresa);
-
-	cout << "CNPJ da Empresa (Apenas numeroa): ";
-	cin >> CNPJ;
-
-	this->empresa.setNome(nomeEmpresa);
-	this->empresa.setCNPJ(CNPJ);
-
-	system("clear");
-	cout << "Empresa criada com sucesso" << endl << endl;
-
-}
-
-
-void EmpresaController::addFuncionario() {
-
-	Funcionario * funcionario = new Funcionario();
-	cin >> funcionario;
-
-
-
-	this->empresa.getFuncionarios().push_back(new Funcionario(funcionario->getNome(), funcionario->getSalario()));
-
-	cout << this->empresa.getFuncionarios().size();
-
-	list<Funcionario *>::iterator itFuncionario = this->empresa.getFuncionarios().begin();
-	for(;itFuncionario != this->empresa.getFuncionarios().end(); itFuncionario++) {
-	
-		cout << (*itFuncionario)->getNome();
-
-	 }
-
-	//cout << "Tamnho da lista: " << this->empresa.getFuncionarios().size();
-	// this->empresa.addFuncionario(funcionario);
-
-	
-
-}
-
-void EmpresaController::listarFuncionario() {
-
-	// list<Funcionario>::iterator itFuncionario = this->empresa.getFuncionarios().begin();
-
-	// int size = this->empresa.getFuncionarios().size();
-	// cout << "Tamnho da lista antes de imprimir " << size;
-
-	// for(int i = 0; i < size; i++, itFuncionario++) {
-	
-	// 	//cout << (*itFuncionario);
-
-	// }
-
-}
-
-
 
 void EmpresaController::run() {
 
@@ -79,7 +17,7 @@ void EmpresaController::run() {
 
 		cin >>  opt;
 
-		
+		//system("clear");
 		switch(opt) {
 
 			case '1':
@@ -102,6 +40,70 @@ void EmpresaController::run() {
 				cout<< "Opção invalida.";
 		}
 	}
+}
 
+
+
+void EmpresaController::criarEmpresa() {
+
+	cout << "Cadastro de Empresa:\n";
+
+	string nomeEmpresa;
+	string CNPJ;
+
+	cin.ignore(1, '\n');
+	cout << "Nome da Empresa: ";
+	getline(cin, nomeEmpresa);
+
+	cout << "CNPJ da Empresa (Apenas numeroa): ";
+	cin >> CNPJ;
+
+	this->empresa.setNome(nomeEmpresa);
+	this->empresa.setCNPJ(CNPJ);
+
+	
+	cout << "Empresa criada com sucesso" << endl << endl;
 
 }
+
+
+void EmpresaController::addFuncionario() {
+
+	Funcionario * funcionario = new Funcionario();
+	cin >> funcionario;
+
+	if(existeFuncionario(funcionario)) {
+		cout << "Já existe um funcinario com o nome informado.\n";
+	} else {
+		this->empresa.getFuncionarios().push_back(funcionario);
+	}
+}
+
+void EmpresaController::listarFuncionario() {
+
+	list<Funcionario *>::iterator itFuncionario = this->empresa.getFuncionarios().begin();
+	
+	for(;itFuncionario != this->empresa.getFuncionarios().end(); itFuncionario++) {
+		cout << (*itFuncionario);
+	 }
+}
+
+bool EmpresaController::existeFuncionario(Funcionario * funcionario) {
+
+	list<Funcionario *>::iterator itFuncionario = this->empresa.getFuncionarios().begin();
+
+	for(;itFuncionario != this->empresa.getFuncionarios().end(); itFuncionario++) {
+
+		// Não para para comparar Funcionario * fazendo sobrecarga de operadores. por isso é necessário criar variaveis temporarias
+		Funcionario f1((*itFuncionario)->getNome(), (*itFuncionario)->getSalario());
+		Funcionario f2(funcionario->getNome(), funcionario->getSalario());
+
+	 	if(f1 == f2) {
+	 		return true;
+	 	}
+
+	}
+
+	 return false;
+}
+

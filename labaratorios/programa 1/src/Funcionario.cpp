@@ -6,7 +6,7 @@ int Funcionario::getCountFuncionarios() {
 	return Funcionario::countFuncionarios;
 }
 
-string Funcionario::getNome() {
+string& Funcionario::getNome() {
 	return this->nome;
 }
 
@@ -35,16 +35,37 @@ Funcionario::Funcionario(string nome, float salario) {
 
 istream& operator>> (istream &i, Funcionario * funcionario) {
 	
+	cout << "Nome: ";
+
 	i.ignore(1, '\n');
 	getline(i, funcionario->nome);
+
+	cout << "Salario: ";
 
 	i >> funcionario->salario;
 	return i;
 }
-/*
-ostream& operator<< (ostream &o, Funcionario const &funcionario) {
+
+ostream& operator<< (ostream &o, Funcionario * const funcionario) {
 	
-	o << "\nNome: " << funcionario.nome << endl << "Salario: " << funcionario.salario;
+	o << "\nNome: " << funcionario->nome << endl << "Salario: " << funcionario->salario;
 
 	return o;
-}*/
+}
+
+bool Funcionario::operator== (Funcionario &funcionario) const{
+
+	string aux1 = this->nome;
+	string aux2 = funcionario.getNome();
+
+	// Converte os nomes dos funcionarios para minusculo
+	transform(aux1.begin(), aux1.end(), aux1.begin(), ::tolower);
+	transform(aux2.begin(), aux2.end(), aux2.begin(), ::tolower);
+
+	if(aux1.compare(aux2) == 0) {
+		return true;
+	} else {
+		return false;
+	}
+
+}
