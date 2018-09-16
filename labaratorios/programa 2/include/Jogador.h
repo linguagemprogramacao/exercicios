@@ -20,6 +20,7 @@ public:
 
 	int& getPontuacao();
 	void setPontuacao(int pontuacao);
+	void addPontuacao(int pontuacao);
 
 	int getStatus();
 	string getStatusString(); // 1 - Ativo; 2 - Parou de jogar; 3 - Excluido;

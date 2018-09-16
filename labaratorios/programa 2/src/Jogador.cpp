@@ -16,8 +16,12 @@ int& Jogador::getPontuacao() {
 	return this->pontuacao;
 }
 
-void Jogador::setPontuacao(int pontuacao) {
+void Jogador::addPontuacao(int pontuacao) {
 	this->pontuacao += pontuacao;
+}
+
+void Jogador::setPontuacao(int pontuacao) {
+	this->pontuacao = pontuacao;
 }
 
 // 1 - Ativo; 2 - Parou de jogar; 3 - Excluido;
@@ -49,22 +53,20 @@ void Jogador::jogarDados() {
 	valorDado = dado.jogarDado();
 	cout << "Dado 1: " << valorDado;
 
-	this->setPontuacao(valorDado);
+	this->addPontuacao(valorDado);
 
 	valorDado = dado.jogarDado();
 	cout << "\nDado 2: " << valorDado << endl;
 
-	this->setPontuacao(valorDado);
+	this->addPontuacao(valorDado);
 
 }
-
 
 Jogador::Jogador(string nome) {
 	this->nome = nome;
 	this->pontuacao = 0;
 	this->status = 1;
 }
-
 
 void Jogador::atualizarStatus() {
 	if(getPontuacao() > Jogador::pontuacaoAlvo) {

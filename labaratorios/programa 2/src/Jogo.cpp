@@ -14,7 +14,8 @@ void Jogo::run() {
 			"(2) Adicionar Jogadores" << endl <<
 			"(3) Listar Jogadores" << endl <<
 			"(4) Limpar lista de jogadores" << endl <<
-			"(5) Sair" << endl;
+			"(5) Reinicar partida" << endl <<
+			"(6) Sair" << endl;
 
 		cin >>  opt;
 
@@ -36,8 +37,11 @@ void Jogo::run() {
 			case '4':
 				limparJogadores();
 				break;
-
 			case '5':
+				reiniciar();
+				break;
+
+			case '6':
 				sair = true;
 				break;
 
@@ -90,6 +94,10 @@ void Jogo::jogar() {
 				}
 
 				continuarJogo = continuar();
+				if(!continuarJogo) {
+					break;	
+				}
+				
 			}
 
 		} while(continuarJogo);
@@ -143,6 +151,17 @@ void Jogo::limparJogadores() {
 }
 
 
+void Jogo::reiniciar() {
+	list<Jogador *>::iterator itJogador = this->jogadores.begin();
+
+		for(;itJogador != this->jogadores.end(); itJogador++) {
+			(*itJogador)->setPontuacao(0);
+			(*itJogador)->setStatus(1);
+
+		}
+}
+
+
 bool Jogo::continuar() {
 
 	int coutJogadoresNaoExcluidos = 0;
@@ -170,6 +189,7 @@ bool Jogo::continuar() {
 
 	if((this->jogadores.size() - coutJogadoresNaoExcluidos) <= 1) {
 		cout << "\n\nJogo acabou. Todos os jogadores foram excluidos\n";
+		verificarCampeao();
 		return false;
 	}	
 
@@ -185,9 +205,37 @@ bool Jogo::continuar() {
 	 	}
 	}
 
+	// Se chegou aqui, significa que o jogo acabou devido a todos os jogadores desistirem
 	verificarCampeao();
 
 	return false;	
 
+}
 
+
+void Jogo::verificarCampeao () {
+
+	int maiorPontuacao = 0;
+
+	list<Jogador *>::iterator itJogador = this->jogadores.begin();
+
+
+	// Pega a maior pontuação dos jogadores não excluidos
+	for(;itJogador != this->jogadores.end(); itJogador++) {
+		if ((*itJogador)->getStatus() != 3) { // Evita verificar jogadores excluidos
+			if ((*itJogador)->getPontuacao() > maiorPontuacao) {
+				maiorPontuacao = (*itJogador)->getPontuacao();
+			}
+		}
+	}
+
+
+	itJogador = this->jogadores.begin();
+	for(;itJogador != this->jogadores.end(); itJogador++) {
+		if ((*itJogador)->getPontuacao() == maiorPontuacao) {
+			(*itJogador)->setStatus(4);
+		}
+	}
+
+	listarJogadores();
 }

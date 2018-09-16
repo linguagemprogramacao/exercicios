@@ -18,7 +18,9 @@ public:
 	void addJogador();
 	void listarJogadores();
 	void limparJogadores();
+	void reiniciar();
 	bool continuar();
+	void verificarCampeao();
 };
 
 
