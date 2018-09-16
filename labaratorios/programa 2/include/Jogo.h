@@ -11,7 +11,6 @@ class Jogo {
 
 private:
 	list<Jogador *> jogadores;
-	static int pontuacaoAlvo;
 
 public:
 	void run();
@@ -19,6 +18,7 @@ public:
 	void addJogador();
 	void listarJogadores();
 	void limparJogadores();
+	bool continuar();
 };
 
 

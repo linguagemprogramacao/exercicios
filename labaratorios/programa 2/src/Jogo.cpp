@@ -1,8 +1,5 @@
 #include "Jogo.h"
-
 #include <iostream>
-
-int Jogo::pontuacaoAlvo = 21;
 
 void Jogo::run() {
 
@@ -54,11 +51,48 @@ void Jogo::run() {
 
 void Jogo::jogar() {
 
-	if(this->jogadores.size() > 0) {
+	if(this->jogadores.size() > 1) {
+
+		list<Jogador *>::iterator itJogador;
+		char opt;
+		bool continuarJogo = true;
+		do {
+			cout << "\t\t** Pontuação alvo: " << Jogador::pontuacaoAlvo;
+			listarJogadores();
+
+			itJogador = this->jogadores.begin();
+
+			for(;itJogador != this->jogadores.end(); itJogador++) {
+				listarJogadores();
+				if((*itJogador)->getStatus() == 1) { // Se o jogador não estiver ativo, pula a execução dele
+					cout << "\n\nJogador da vez: " << (*itJogador)->getNome() << endl;
+					cout << "\nOpções: " << endl << 
+						"(1) Jogar Dado" << endl <<
+						"(2) Parar de Jogar" << endl;
+
+					cin >>  opt;
 
 
+					switch(opt) {
 
+						case '1':
+							(*itJogador)->jogarDados();
+							(*itJogador)->atualizarStatus();
+							break;
 
+						case '2':
+							(*itJogador)->setStatus(2);
+							break;
+
+						default:
+							cout<< "Opção invalida.";
+					}
+				}
+
+				continuarJogo = continuar();
+			}
+
+		} while(continuarJogo);
 	} else {
 		cout << "\nÉ necessário pelo menos 2 jogadores para jogar.\n\n";
 	}
@@ -92,7 +126,7 @@ void Jogo::listarJogadores() {
 		for(;itJogador != this->jogadores.end(); itJogador++) {
 			cout << "\nJogador: " << (*itJogador)->getNome() <<
 				 "\nPontuacao: " << (*itJogador)->getPontuacao() <<
-				 "\nStatus: " << (*itJogador)->getStatus() << endl;
+				 "\nStatus: " << (*itJogador)->getStatusString() << endl;
 		}
 
 
@@ -106,4 +140,54 @@ void Jogo::listarJogadores() {
 
 void Jogo::limparJogadores() {
 	this->jogadores.clear();
+}
+
+
+bool Jogo::continuar() {
+
+	int coutJogadoresNaoExcluidos = 0;
+	//list<Jogador *> jogadoresNaoExcluidos = this->jogadores;
+
+	list<Jogador *>::iterator itJogador = this->jogadores.begin();
+
+	// Verifica se alguem ganhou o jogo
+	for(;itJogador != this->jogadores.end(); itJogador++) {
+		if ((*itJogador)->getStatus() == 4) {
+			cout << "\n\nJogo acabou\n" << "********* " << (*itJogador)->getNome() << " é o campeao *******\n";
+			return false;
+		}
+	}
+
+	
+	itJogador = this->jogadores.begin();
+
+	// Verifica se ainda existe, e quantos, jogadores não excluidos para jogar
+	for(;itJogador != this->jogadores.end(); itJogador++) {
+		if ((*itJogador)->getStatus() == 3) {
+			coutJogadoresNaoExcluidos++;
+		}
+	}
+
+	if((this->jogadores.size() - coutJogadoresNaoExcluidos) <= 1) {
+		cout << "\n\nJogo acabou. Todos os jogadores foram excluidos\n";
+		return false;
+	}	
+
+
+	// Verifica se os jogadores pararam
+	itJogador = this->jogadores.begin();
+
+	for(;itJogador != this->jogadores.end(); itJogador++) {
+		if ((*itJogador)->getStatus() != 3) {
+			if ((*itJogador)->getStatus() == 1) {
+				return true; // Se existe algum jogador ativo, então o jogo continua. 
+			}
+	 	}
+	}
+
+	verificarCampeao();
+
+	return false;	
+
+
 }

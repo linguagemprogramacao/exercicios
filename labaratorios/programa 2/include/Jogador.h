@@ -11,17 +11,22 @@ private:
 	string nome;
 	int pontuacao;
 	int status;
+	
 
 public:
 	string& getNome();
 	void setNome(string nome);
+	static int pontuacaoAlvo;
 
 	int& getPontuacao();
 	void setPontuacao(int pontuacao);
 
-	string getStatus(); // 1 - Ativo; 2 - Parou de jogar; 3 - Excluido;
+	int getStatus();
+	string getStatusString(); // 1 - Ativo; 2 - Parou de jogar; 3 - Excluido;
 	void setStatus(int status);
 
+	void jogarDados();
+	void atualizarStatus();
 	Jogador(string nome);
 };
 
