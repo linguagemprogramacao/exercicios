@@ -1,0 +1,25 @@
+#ifndef JOGO_H
+#define JOGO_H
+
+#include "Jogador.h"
+
+#include <list>
+
+using namespace std;
+
+class Jogo {
+
+private:
+	list<Jogador *> jogadores;
+	static int pontuacaoAlvo;
+
+public:
+	void run();
+	void jogar();
+	void addJogador();
+	void listarJogadores();
+	void limparJogadores();
+};
+
+
+#endif
