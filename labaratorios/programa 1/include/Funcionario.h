@@ -4,7 +4,7 @@
 #include <string>
 #include <iostream>
 #include <ostream>
-#include <algorithm>
+#include <algorithm> // Transformar string em minuscula
 
 using namespace std;
 
@@ -18,7 +18,7 @@ public:
 
 	static int countFuncionarios;
 
-	int getCountFuncionarios();
+	int getCountFuncionarios(); // numero total de funcionarios cadastrados no sistema
 
 	string& getNome();
 	void setNome(string nome);

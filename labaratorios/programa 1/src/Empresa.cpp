@@ -42,7 +42,7 @@ Empresa::Empresa(string nome, string CNPJ) {
 
 bool Empresa::operator== (Empresa &empresa) const{
 
-	if(this->CNPJ.compare(empresa.getCNPJ()) == 0) {
+	if(this->CNPJ.compare(empresa.getCNPJ()) == 0) { // Se os dois CNPJs são iguais, então é a mesma empresa
 		return true;
 	} else {
 		return false;

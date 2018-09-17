@@ -62,7 +62,7 @@ bool Funcionario::operator== (Funcionario &funcionario) const{
 	transform(aux2.begin(), aux2.end(), aux2.begin(), ::tolower);
 
 	if(aux1.compare(aux2) == 0) {
-		return true;
+		return true; // Se os dois nomes forem iguais, então é o mesmo funcionario
 	} else {
 		return false;
 	}

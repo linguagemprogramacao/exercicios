@@ -59,7 +59,9 @@ void EmpresaController::run() {
 }
 
 
-
+/**
+	Criar um nova empresa e insere na lsita de empresas
+*/
 void EmpresaController::criarEmpresa() {
 
 	cout << "Cadastro de Empresa:\n";
@@ -92,6 +94,9 @@ void EmpresaController::criarEmpresa() {
 
 }
 
+/**
+	Lista das empresas cadastradas no sistema.
+*/
 void EmpresaController::listarEmpresas() {
 	if (this->empresas.size() > 0) {
 
@@ -109,6 +114,13 @@ void EmpresaController::listarEmpresas() {
 }
 
 
+/**
+	Verifica se a empresa passada por parametro existe no sistema.
+
+	Returno:
+		true - Empresa já existe
+		false - Empresa não existe
+*/
 bool EmpresaController::existeEmpresa(Empresa * empresa) {
 
 	list<Empresa *>::iterator itEmpresa = this->empresas.begin();
@@ -129,7 +141,9 @@ bool EmpresaController::existeEmpresa(Empresa * empresa) {
 }
 
 
-
+/*
+	Permite selecionar um empresa e adicionar um funcionario nela
+*/
 void EmpresaController::addFuncionario() {
 
 	if (this->empresas.size() > 0) {
@@ -145,8 +159,6 @@ void EmpresaController::addFuncionario() {
 			cout << "Empresas cadastradas:\n\n(0) - Voltar\n";
 			listarEmpresas();
 			cout <<"Informe a empresa que deseja adicionar o funcionario: ";
-			
-			
 
 			cin >>  iopt;
 
@@ -180,6 +192,9 @@ void EmpresaController::addFuncionario() {
 
 }
 
+/*
+	Permite selecionar um empresa e listar seus funcionarios
+*/
 void EmpresaController::listarFuncionario() {
 
 
@@ -227,7 +242,15 @@ void EmpresaController::listarFuncionario() {
 	}
 }
 
+/**	
+	Parametros:
+		list<Funcionario *> funcionarios - Lista de funcionarios de um empresa;
+		Funcionario * funcionario - Funcionario o qual se deseja verificar se existe na empresa
 
+	Returno:
+		true - Funcionario já existe
+		false - Funcionario não existe
+*/
 bool EmpresaController::existeFuncionario(list<Funcionario *> funcionarios, Funcionario * funcionario) {
 
 	list<Funcionario *>::iterator itFuncionario = funcionarios.begin();
@@ -246,6 +269,9 @@ bool EmpresaController::existeFuncionario(list<Funcionario *> funcionarios, Func
 }
 
 
+/*
+	Permite selecionar um empresa e dar aumento a todos os seus funcionarios
+*/
 void EmpresaController::darAumento() {
 
 	if (this->empresas.size() > 0) {
@@ -298,6 +324,9 @@ void EmpresaController::darAumento() {
 	}
 }
 
+/**
+	Exibe a quantidade de funcionarios por empresa
+*/
 void EmpresaController::porcentagem(){
 
 	if(Empresa::countEmpresas > 0) { // evita divisão por 0
@@ -308,5 +337,3 @@ void EmpresaController::porcentagem(){
 
 
 }
-
-

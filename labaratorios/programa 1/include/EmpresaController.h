@@ -13,7 +13,7 @@
 class EmpresaController {
 
 private:
-	list<Empresa *> empresas;
+	list<Empresa *> empresas; // Lista de empresas do sistema
 
 public:
 	void criarEmpresa();

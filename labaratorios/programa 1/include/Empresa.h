@@ -11,15 +11,11 @@ using namespace std;
 class Empresa {
 
 private:
-	
 	string nome;
 	string CNPJ;
-	
-
-public:
-
 	list<Funcionario *> funcionarios;
 
+public:
 	static int countEmpresas;
 
 	string getNome();
@@ -34,7 +30,6 @@ public:
 	void addFuncionario(Funcionario * funcionario);
 	Empresa();
 	Empresa(string nome, string CNPJ);
-
 	bool operator==(Empresa &empresa) const;
 };
 
