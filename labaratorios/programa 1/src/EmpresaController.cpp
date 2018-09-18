@@ -53,7 +53,7 @@ void EmpresaController::run() {
 				break;
 
 			default:
-				cout<< "\nOpção invalida.";
+				cout<< "Opção invalida.\n\n";
 		}
 	}
 }
@@ -309,10 +309,12 @@ void EmpresaController::darAumento() {
 						(*itFuncionario)->setSalario((*itFuncionario)->getSalario() * ((aumento/100.00) + 1));
 
 					}
+					system("clear");
 					cout << "\nO aumento de " << aumento << " foi consedido.\n";
 
 				} else {
-				  	cout << "\nNão existe funcioraios cadastrados para essa empresa.\n";
+					system("clear");
+				  	cout << "\nNão existe funcioraios cadastrados para essa empresa.\n\n";
 				}
 			} else if (iopt < 0 or iopt > this->empresas.size()){
 				cout << "Valor invalido.\n\n";
