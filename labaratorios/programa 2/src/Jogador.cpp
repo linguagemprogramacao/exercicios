@@ -2,7 +2,7 @@
 #include <Dado.h>
 #include <iostream>
 
-int Jogador::pontuacaoAlvo = 21;
+int Jogador::pontuacaoAlvo = 21; // Pontuação alvo que os jogadores devem atingir
 
 string& Jogador::getNome() {
 	return this->nome;
@@ -24,12 +24,18 @@ void Jogador::setPontuacao(int pontuacao) {
 	this->pontuacao = pontuacao;
 }
 
-// 1 - Ativo; 2 - Parou de jogar; 3 - Excluido;
 int Jogador::getStatus(){
 	return this->status;
 } 
 
-// 1 - Ativo; 2 - Parou de jogar; 3 - Excluido;
+/**
+	Retorno o status do jogador de forma descritiva
+	Retorno:
+		1 - Ativo;
+		2 - Parou de jogar;
+		3 - Excluido;
+		4 - Campeão
+*/
 string Jogador::getStatusString(){
 	if(status == 1) {
 		return "Ativo";
@@ -46,6 +52,7 @@ void Jogador::setStatus(int status) {
 	this->status = status;
 }
 
+// Simula a jogada de dois dados
 void Jogador::jogarDados() {
 
 	Dado dado;
@@ -62,12 +69,14 @@ void Jogador::jogarDados() {
 
 }
 
+
 Jogador::Jogador(string nome) {
 	this->nome = nome;
 	this->pontuacao = 0;
 	this->status = 1;
 }
 
+// Atualiza o status do jogador ao jogar um dado
 void Jogador::atualizarStatus() {
 	if(getPontuacao() > Jogador::pontuacaoAlvo) {
 		setStatus(3);
