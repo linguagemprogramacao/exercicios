@@ -53,13 +53,29 @@ int main (int argc, char const * argv []) {
 				}
 				break;
 
-			case '2':
+			case '2':{
+
 				
+
 				agenda.removeContato("Jerff");
+				}
 				break;
 
-			case '3':
-				agenda.buscaContato("Jerff");
+			case '3': {
+
+				string nomeContato="";
+				cout<< "Digite o nome do contato que deseja buscar: ";
+				cin >> nomeContato;
+
+				int indiceContato = agenda.buscaContato(nomeContato);
+				
+				if(indiceContato != -1) {
+					cout << "Contato: " << agenda.getContato(indiceContato);
+				} else {
+					cout << "Contato não existe.";
+				}
+
+				}
 				break;
 
 			case '4':
@@ -67,6 +83,17 @@ int main (int argc, char const * argv []) {
 				break;
 
 			case '5':
+				agenda.listaContato();
+				int indiceContato;
+				cout << "Informe o indice do contato que deseja buscar: ";
+				cin >> indiceContato;
+				if(indiceContato >= 0 and indiceContato <= agenda.getTotalContatos()-1 ) {
+					cout << agenda.getContato(indiceContato);
+				} else {
+					cout << "Indice invalido. Selecione um valor entre 0  e " 
+					<< agenda.getTotalContatos()-1 << endl;
+				}
+
 				agenda.imprimeContato(0);
 				break;
 

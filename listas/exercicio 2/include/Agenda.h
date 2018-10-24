@@ -30,6 +30,10 @@ class Agenda {
 
 		Agenda();
 
+		Pessoa& getContato(int indice);
+
+		int getTotalContatos();
+
 	private :
 		Pessoa contatos[MAX_CONTATOS];
 		int total_contatos = 0;

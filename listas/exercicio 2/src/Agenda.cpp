@@ -17,7 +17,16 @@ void Agenda::removeContato (string nome) {
 
 /* retorna o indice para o contato ou -1 caso nao exista */
 int Agenda::buscaContato(string nome) {
-	return 0;
+
+	for(int i = 0; i < total_contatos; i++){
+       
+		if(nome.compare(contatos[i].getNome()) == 0) {
+			return i;
+		}
+
+    }
+
+	return -1;
 }
 
 /* lista todos os contatos ou apenas aqueles que
@@ -38,3 +47,11 @@ void Agenda::imprimeContato(int i) {
 Agenda::Agenda() {
 	total_contatos = 0;
 } 
+
+Pessoa& Agenda::getContato(int indice) {
+	return contatos[indice];
+}
+
+int Agenda::getTotalContatos() {
+	return total_contatos;
+}

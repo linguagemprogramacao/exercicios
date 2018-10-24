@@ -38,7 +38,7 @@ void Pessoa::setAltura(double altura) {
 
 ostream& operator<< (ostream &o, Pessoa const pessoa) {
 
-	o << "Nome: " << pessoa.nome << endl << "Idade: " << pessoa.idade << endl << "Altura: " << pessoa.altura;
+	o << "Nome: " << pessoa.nome << endl << "Idade: " << pessoa.idade << endl << "Altura: " << pessoa.altura << endl;
 
 	return o;
 }
