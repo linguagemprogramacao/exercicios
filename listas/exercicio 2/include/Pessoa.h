@@ -24,6 +24,8 @@ public:
 	double& getAltura();
 	void setAltura(double altura);
 	friend ostream& operator<< (ostream &o, Pessoa const pessoa);
+	
+	Pessoa& operator=(const Pessoa &pessoa );
 
 
 };

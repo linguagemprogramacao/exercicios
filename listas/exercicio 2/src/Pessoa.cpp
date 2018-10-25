@@ -42,3 +42,13 @@ ostream& operator<< (ostream &o, Pessoa const pessoa) {
 
 	return o;
 }
+
+Pessoa& Pessoa::operator=(const Pessoa &pessoa ){
+
+	this->nome = pessoa.nome;
+	this->idade = pessoa.idade;
+	this->altura = pessoa.altura;
+
+	return *this;
+
+}

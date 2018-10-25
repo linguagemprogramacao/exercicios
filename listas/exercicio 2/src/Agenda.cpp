@@ -8,11 +8,39 @@ void Agenda::insereContato(string nome, int idade, float altura) {
 	contatos[total_contatos] = p;
 
 	total_contatos++;
+	cout << "Contato Adicionado Com sucesso" << endl;
 }
 
 /* remove um contato pelo nome e reorganiza a agenda */
 void Agenda::removeContato (string nome) {
 
+	int indice = buscaContato(nome);
+	int aux = 0;
+
+	if (total_contatos == 0) {
+
+		cout << "Não a contatos para remover" << endl;
+
+	} else if (total_contatos == 1) {
+
+		total_contatos=0;
+		cout << "Contato Removido Com sucesso" << endl;
+
+
+	} else if(indice != -1){
+
+		for(int i = indice; i < total_contatos-1; i++){
+
+			aux = i + 1;
+
+			contatos[i] = contatos[aux];
+		}
+
+		total_contatos--;
+
+		cout << "Contato Removido Com sucesso" << endl;
+
+	}
 }
 
 /* retorna o indice para o contato ou -1 caso nao exista */
@@ -33,22 +61,31 @@ int Agenda::buscaContato(string nome) {
 iniciam por uma determinada letra */
 void Agenda::listaContato(char letra) {
 
-	for (int i = 0; i <  total_contatos; i++) {
-		cout << contatos[i];
+	if(letra == '\0') {
+		for (int i = 0; i <  total_contatos; i++) {
+			cout << "Indice: " << i << endl << contatos[i] << endl;
+		}
+	} else {
+
+		for (int i = 0; i <  total_contatos; i++) {
+			if(static_cast<char>(std::tolower(static_cast<unsigned char>(letra))) == static_cast<char>(std::tolower(static_cast<unsigned char>(contatos[i].getNome().at(0))))) {
+				cout << "Indice: " << i << endl << contatos[i] << endl;
+			}
+		}
 	}
 
 }
 
 /* imprime os dados do contato armazenado na posicao i */
 void Agenda::imprimeContato(int i) {
-
+	cout << getContato(i);
 }
 
 Agenda::Agenda() {
 	total_contatos = 0;
 } 
 
-Pessoa& Agenda::getContato(int indice) {
+Pessoa Agenda::getContato(int indice) {
 	return contatos[indice];
 }
 

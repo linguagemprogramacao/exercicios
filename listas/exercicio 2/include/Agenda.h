@@ -30,7 +30,7 @@ class Agenda {
 
 		Agenda();
 
-		Pessoa& getContato(int indice);
+		Pessoa getContato(int indice);
 
 		int getTotalContatos();
 
