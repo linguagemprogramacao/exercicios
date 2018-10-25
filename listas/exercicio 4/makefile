@@ -14,7 +14,7 @@ INC = ./include
 
 CPPFLAGS = -Wall -pedantic -std=c++11 -I$(INC)
 
-OBJS = $(OBJ)/pessoa.o $(OBJ)/agenda.o $(OBJ)/main.o
+OBJS = $(OBJ)/data.o $(OBJ)/main.o
 
 all: $(PROG)
 	$(PROG)
@@ -22,11 +22,8 @@ all: $(PROG)
 $(PROG): $(OBJS)
 	$(CC) $(CPPFLAGS) -o $(PROG) $(OBJS)
 
-$(OBJ)/pessoa.o: $(INC)/Pessoa.h
-	$(CC) $(CPPFLAGS) -c $(SRC)/Pessoa.cpp -o $(OBJ)/pessoa.o
-
-$(OBJ)/agenda.o: $(OBJ)/pessoa.o $(INC)/Agenda.h
-	$(CC) $(CPPFLAGS) -c $(SRC)/Agenda.cpp -o $(OBJ)/agenda.o
+$(OBJ)/data.o: $(OBJ)/data.o $(INC)/Data.h
+	$(CC) $(CPPFLAGS) -c $(SRC)/Data.cpp -o $(OBJ)/data.o
 
 $(OBJ)/main.o: $(SRC)/main.cpp 
 	$(CC) $(CPPFLAGS) -c $(SRC)/main.cpp -o $(OBJ)/main.o

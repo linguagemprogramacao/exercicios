@@ -1,11 +1,11 @@
-# Laboratório 1 - Programa 1 
+# Laboratório 2
 # Linguagem de Programação 1
 #
 # Jerffeson Gomes
 
 
 CC = g++
-PROG = $(BIN)/programa1
+PROG = $(BIN)/programa
 
 OBJ = ./build
 SRC = ./src
