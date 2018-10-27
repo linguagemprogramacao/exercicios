@@ -28,27 +28,33 @@ Data::Data(int dia, int mes, int ano) {
 */
 void Data::somarAnos(int quantidade) {
 
-	this->ano += quantidade;
+	
+	int totalDias = 0;
 
-	if (this->dia == 29 and this->mes == 2) { // Valida o dia 29 de fevereiro
-		if(!validaData(this->dia, this->mes, this->ano)) {
-			this->dia = 1;
-			this->mes = 3;
+	for (int aux = 1;quantidade > 0; quantidade--, aux++){
+
+		totalDias +=365;
+
+		if(validaData(29, 2, this->ano+aux)) {
+			totalDias++; // O ano tem um dia a mais, pois é bissesto;
 		}
+
 	}
+
+	somarDias(totalDias);
+
 }
 
 void Data::somarMeses(int quantidade) {
 
-	int addAnos = quantidade/12;
+	somarAnos(quantidade/12);
 	int addMes = quantidade%12;
 
-	this->ano += addAnos;
 	this->mes += addMes;
 
 	if (this->mes > 12) {
 			this->ano++;
-			this->mes = 1;
+			this->mes = this->mes - 12;
 	}
 
 	if (this->dia == 29 and this->mes == 2) { // Valida o dia 29 de fevereiro
@@ -69,27 +75,25 @@ void Data::somarDias(int quantidade) {
 		for (;this->dia < diasMes and quantidade > 0;) {
 			this->dia++;
 			quantidade--;
-
-			//cout << "Add 1 dia " << (*this) << endl;
-
 		}
 
 		if (this->dia >= diasMes and quantidade > 0) {
 			this->dia = 1;
 			this->mes++;
 			quantidade--;
+			
 		}
 		
-
 		if (this->mes > 12) {
 			this->ano++;
 			this->mes = 1;
 		}
 
-		//
-
 	}
+}
 
+void Data::proximoDia() {
+	somarDias(1);
 }
 
 int Data::qntDiasMes(int mes, int ano) {
@@ -138,7 +142,7 @@ bool Data::validaData(int dias, int mes, int ano) {
 
 ostream& operator<< (ostream &o, Data const data){ 
 	
-	o << "Data: " << data.dia << "/" << data.mes << "/" << data.ano << endl;
+	o << "Data: " << data.dia << "/" << data.mes << "/" << data.ano;
 
 	return o;
 }

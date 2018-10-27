@@ -25,6 +25,7 @@ public:
 	void somarMeses(int quantidade);
 	void somarDias(int quantidade);
 	int qntDiasMes(int mes, int ano);
+	void proximoDia();
 	friend ostream& operator<< (ostream &o, Data const Data);
 
 
