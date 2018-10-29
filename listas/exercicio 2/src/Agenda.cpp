@@ -1,17 +1,30 @@
 #include "Agenda.h"
 
+/**
+* @file Agenda.cpp
+* @brief Classe que representa uma Agenda
+* @author Jerffeson
+*/
 
-/* armazena um novo contato */
+/**
+* @brief Armazena um novo contato
+* @param nome : String 
+* @param idade : int
+* @param altura : float 
+*/
 void Agenda::insereContato(string nome, int idade, float altura) {
 
 	Pessoa p(nome, idade, altura);
-	contatos[total_contatos] = p;
+	contatos[total_contatos] = p; /**< Sobregarda do operador= necessária para essa ação */
 
 	total_contatos++;
 	cout << "Contato Adicionado Com sucesso" << endl;
 }
 
-/* remove um contato pelo nome e reorganiza a agenda */
+/**
+* @brief Remove um contato pelo nome (Case Sensitive) e reorganiza a agenda
+* @param nome : String - Nome do contato a ser apagado
+*/
 void Agenda::removeContato (string nome) {
 
 	int indice = buscaContato(nome);
@@ -43,7 +56,11 @@ void Agenda::removeContato (string nome) {
 	}
 }
 
-/* retorna o indice para o contato ou -1 caso nao exista */
+/**
+* @brief Retorna o indice do contato
+* @param nome : String - Nome do contato a ser procurado (Case Sensitive)
+* @return Inteiro - Indice do contato na lista <br />-1 - Caso o contado não exista
+*/
 int Agenda::buscaContato(string nome) {
 
 	for(int i = 0; i < total_contatos; i++){
@@ -57,11 +74,13 @@ int Agenda::buscaContato(string nome) {
 	return -1;
 }
 
-/* lista todos os contatos ou apenas aqueles que
-iniciam por uma determinada letra */
+/**
+* @brief  lista todos os contatos ou apenas aqueles que iniciam por uma determinada letra
+* @param letra : char - Primeira letra do nome dos contatos a ser embuscado
+*/
 void Agenda::listaContato(char letra) {
 
-	if(letra == '\0') {
+	if(letra == '\0') { /**< Caso nenhum caracter seja inserido, exibe todos os contatos*/
 		for (int i = 0; i <  total_contatos; i++) {
 			cout << "Indice: " << i << endl << contatos[i] << endl;
 		}

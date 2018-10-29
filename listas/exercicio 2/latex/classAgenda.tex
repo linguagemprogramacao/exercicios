@@ -1,0 +1,139 @@
+\hypertarget{classAgenda}{}\section{Agenda Class Reference}
+\label{classAgenda}\index{Agenda@{Agenda}}
+
+
+{\ttfamily \#include $<$Agenda.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classAgenda_ab222db5a8e3e0202d63f7a751175ea50}{insere\+Contato} (string nome, int idade, float altura)
+\begin{DoxyCompactList}\small\item\em Armazena um novo contato. \end{DoxyCompactList}\item 
+void \hyperlink{classAgenda_a7088190d93e67871f170659a1030c757}{remove\+Contato} (string nome)
+\begin{DoxyCompactList}\small\item\em Remove um contato pelo nome (Case Sensitive) e reorganiza a agenda. \end{DoxyCompactList}\item 
+int \hyperlink{classAgenda_aaa6fac2bbb2862a6ab4dce3d77ca63c6}{busca\+Contato} (string nome)
+\begin{DoxyCompactList}\small\item\em Retorna o indice do contato. \end{DoxyCompactList}\item 
+void \hyperlink{classAgenda_a79f206a17b36cfb5272063ac25973628}{lista\+Contato} (char letra= \textquotesingle{}\textbackslash{}0\textquotesingle{})
+\begin{DoxyCompactList}\small\item\em lista todos os contatos ou apenas aqueles que iniciam por uma determinada letra \end{DoxyCompactList}\item 
+void \hyperlink{classAgenda_adcc9683833a2ee94223d4cb94607f39d}{imprime\+Contato} (int i)
+\item 
+\hyperlink{classAgenda_a6685054d2b4ccbf2a4ef2ac5e3746bc3}{Agenda} ()
+\item 
+\hyperlink{classPessoa}{Pessoa} \hyperlink{classAgenda_a6a805cb0e712fee84e74c207d62dc378}{get\+Contato} (int indice)
+\item 
+int \hyperlink{classAgenda_aa9b2e02d34198613a9df81022149bdbb}{get\+Total\+Contatos} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Agenda@{Agenda}!Agenda@{Agenda}}
+\index{Agenda@{Agenda}!Agenda@{Agenda}}
+\subsubsection[{\texorpdfstring{Agenda()}{Agenda()}}]{\setlength{\rightskip}{0pt plus 5cm}Agenda\+::\+Agenda (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classAgenda_a6685054d2b4ccbf2a4ef2ac5e3746bc3}{}\label{classAgenda_a6685054d2b4ccbf2a4ef2ac5e3746bc3}
+
+
+\subsection{Member Function Documentation}
+\index{Agenda@{Agenda}!busca\+Contato@{busca\+Contato}}
+\index{busca\+Contato@{busca\+Contato}!Agenda@{Agenda}}
+\subsubsection[{\texorpdfstring{busca\+Contato(string nome)}{buscaContato(string nome)}}]{\setlength{\rightskip}{0pt plus 5cm}int Agenda\+::busca\+Contato (
+\begin{DoxyParamCaption}
+\item[{string}]{nome}
+\end{DoxyParamCaption}
+)}\hypertarget{classAgenda_aaa6fac2bbb2862a6ab4dce3d77ca63c6}{}\label{classAgenda_aaa6fac2bbb2862a6ab4dce3d77ca63c6}
+
+
+Retorna o indice do contato. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nome} & \+: String -\/ Nome do contato a ser procurado (Case Sensitive) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Inteiro -\/ Indice do contato na lista ~\newline
+-\/1 -\/ Caso o contado não exista 
+\end{DoxyReturn}
+\index{Agenda@{Agenda}!get\+Contato@{get\+Contato}}
+\index{get\+Contato@{get\+Contato}!Agenda@{Agenda}}
+\subsubsection[{\texorpdfstring{get\+Contato(int indice)}{getContato(int indice)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Pessoa} Agenda\+::get\+Contato (
+\begin{DoxyParamCaption}
+\item[{int}]{indice}
+\end{DoxyParamCaption}
+)}\hypertarget{classAgenda_a6a805cb0e712fee84e74c207d62dc378}{}\label{classAgenda_a6a805cb0e712fee84e74c207d62dc378}
+\index{Agenda@{Agenda}!get\+Total\+Contatos@{get\+Total\+Contatos}}
+\index{get\+Total\+Contatos@{get\+Total\+Contatos}!Agenda@{Agenda}}
+\subsubsection[{\texorpdfstring{get\+Total\+Contatos()}{getTotalContatos()}}]{\setlength{\rightskip}{0pt plus 5cm}int Agenda\+::get\+Total\+Contatos (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classAgenda_aa9b2e02d34198613a9df81022149bdbb}{}\label{classAgenda_aa9b2e02d34198613a9df81022149bdbb}
+\index{Agenda@{Agenda}!imprime\+Contato@{imprime\+Contato}}
+\index{imprime\+Contato@{imprime\+Contato}!Agenda@{Agenda}}
+\subsubsection[{\texorpdfstring{imprime\+Contato(int i)}{imprimeContato(int i)}}]{\setlength{\rightskip}{0pt plus 5cm}void Agenda\+::imprime\+Contato (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+)}\hypertarget{classAgenda_adcc9683833a2ee94223d4cb94607f39d}{}\label{classAgenda_adcc9683833a2ee94223d4cb94607f39d}
+\index{Agenda@{Agenda}!insere\+Contato@{insere\+Contato}}
+\index{insere\+Contato@{insere\+Contato}!Agenda@{Agenda}}
+\subsubsection[{\texorpdfstring{insere\+Contato(string nome, int idade, float altura)}{insereContato(string nome, int idade, float altura)}}]{\setlength{\rightskip}{0pt plus 5cm}void Agenda\+::insere\+Contato (
+\begin{DoxyParamCaption}
+\item[{string}]{nome, }
+\item[{int}]{idade, }
+\item[{float}]{altura}
+\end{DoxyParamCaption}
+)}\hypertarget{classAgenda_ab222db5a8e3e0202d63f7a751175ea50}{}\label{classAgenda_ab222db5a8e3e0202d63f7a751175ea50}
+
+
+Armazena um novo contato. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nome} & \+: String \\
+\hline
+{\em idade} & \+: int \\
+\hline
+{\em altura} & \+: float \\
+\hline
+\end{DoxyParams}
+$<$ Sobregarda do operador= necessária para essa ação \index{Agenda@{Agenda}!lista\+Contato@{lista\+Contato}}
+\index{lista\+Contato@{lista\+Contato}!Agenda@{Agenda}}
+\subsubsection[{\texorpdfstring{lista\+Contato(char letra= \textquotesingle{}\textbackslash{}0\textquotesingle{})}{listaContato(char letra= '\textbackslash{}0')}}]{\setlength{\rightskip}{0pt plus 5cm}void Agenda\+::lista\+Contato (
+\begin{DoxyParamCaption}
+\item[{char}]{letra = {\ttfamily \textquotesingle{}\textbackslash{}0\textquotesingle{}}}
+\end{DoxyParamCaption}
+)}\hypertarget{classAgenda_a79f206a17b36cfb5272063ac25973628}{}\label{classAgenda_a79f206a17b36cfb5272063ac25973628}
+
+
+lista todos os contatos ou apenas aqueles que iniciam por uma determinada letra 
+
+
+\begin{DoxyParams}{Parameters}
+{\em letra} & \+: char -\/ Primeira letra do nome dos contatos a ser embuscado \\
+\hline
+\end{DoxyParams}
+$<$ Caso nenhum caracter seja inserido, exibe todos os contatos \index{Agenda@{Agenda}!remove\+Contato@{remove\+Contato}}
+\index{remove\+Contato@{remove\+Contato}!Agenda@{Agenda}}
+\subsubsection[{\texorpdfstring{remove\+Contato(string nome)}{removeContato(string nome)}}]{\setlength{\rightskip}{0pt plus 5cm}void Agenda\+::remove\+Contato (
+\begin{DoxyParamCaption}
+\item[{string}]{nome}
+\end{DoxyParamCaption}
+)}\hypertarget{classAgenda_a7088190d93e67871f170659a1030c757}{}\label{classAgenda_a7088190d93e67871f170659a1030c757}
+
+
+Remove um contato pelo nome (Case Sensitive) e reorganiza a agenda. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nome} & \+: String -\/ Nome do contato a ser apagado \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{Agenda_8h}{Agenda.\+h}\item 
+src/\hyperlink{Agenda_8cpp}{Agenda.\+cpp}\end{DoxyCompactItemize}

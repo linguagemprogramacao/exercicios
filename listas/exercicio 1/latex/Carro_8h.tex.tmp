@@ -1,0 +1,12 @@
+\hypertarget{Carro_8h}{}\section{include/\+Carro.h File Reference}
+\label{Carro_8h}\index{include/\+Carro.\+h@{include/\+Carro.\+h}}
+{\ttfamily \#include $<$string$>$}\\*
+Include dependency graph for Carro.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classCarro}{Carro}
+\end{DoxyCompactItemize}
