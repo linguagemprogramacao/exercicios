@@ -1,0 +1,171 @@
+\hypertarget{classData}{}\section{Data Class Reference}
+\label{classData}\index{Data@{Data}}
+
+
+{\ttfamily \#include $<$Data.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classData_af11f741cb7f587e2e495452a8905a22a}{Data} ()
+\begin{DoxyCompactList}\small\item\em Inicializa o objeto com a data atual. \end{DoxyCompactList}\item 
+\hyperlink{classData_a9eaa4c35a1bb04a39483d504fac0ac0a}{Data} (int dia, int mes, int ano)
+\begin{DoxyCompactList}\small\item\em Inicializa o objeto com a data informada pelo usuário. \end{DoxyCompactList}\item 
+bool \hyperlink{classData_a519fefa4af2ac86d1edf9c657be6090a}{valida\+Data} (int dia, int mes, int ano)
+\begin{DoxyCompactList}\small\item\em Valida datas evitando datas como 29/2/2018. \end{DoxyCompactList}\item 
+void \hyperlink{classData_a625e88a6e13f94a2c6d03a3784a0f940}{somar\+Anos} (int quantidade)
+\begin{DoxyCompactList}\small\item\em Soma X anos a data. \end{DoxyCompactList}\item 
+void \hyperlink{classData_a88bee1060434fa6447c909c35cbfd3fe}{somar\+Meses} (int quantidade)
+\begin{DoxyCompactList}\small\item\em Soma X meses a data. \end{DoxyCompactList}\item 
+void \hyperlink{classData_a69f64da1089e3281d0c0114533cd0ae1}{somar\+Dias} (int quantidade)
+\begin{DoxyCompactList}\small\item\em Soma X dias a data. \end{DoxyCompactList}\item 
+int \hyperlink{classData_a8471bef98166420ae3be64396861a8b8}{qnt\+Dias\+Mes} (int mes, int ano)
+\begin{DoxyCompactList}\small\item\em Retorna a quantidade de dias em um mês e ano especifico. \end{DoxyCompactList}\item 
+void \hyperlink{classData_a9d7a1ba5561e5a1cfb7bc0162c76a7c5}{proximo\+Dia} ()
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+ostream \& \hyperlink{classData_a96d440df38e5aa517be9797ee9a80e0b}{operator$<$$<$} (ostream \&o, \hyperlink{classData}{Data} const \hyperlink{classData}{Data})
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Data@{Data}!Data@{Data}}
+\index{Data@{Data}!Data@{Data}}
+\subsubsection[{\texorpdfstring{Data()}{Data()}}]{\setlength{\rightskip}{0pt plus 5cm}Data\+::\+Data (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classData_af11f741cb7f587e2e495452a8905a22a}{}\label{classData_af11f741cb7f587e2e495452a8905a22a}
+
+
+Inicializa o objeto com a data atual. 
+
+\index{Data@{Data}!Data@{Data}}
+\index{Data@{Data}!Data@{Data}}
+\subsubsection[{\texorpdfstring{Data(int dia, int mes, int ano)}{Data(int dia, int mes, int ano)}}]{\setlength{\rightskip}{0pt plus 5cm}Dat Data\+::\+Data (
+\begin{DoxyParamCaption}
+\item[{int}]{dia, }
+\item[{int}]{mes, }
+\item[{int}]{ano}
+\end{DoxyParamCaption}
+)}\hypertarget{classData_a9eaa4c35a1bb04a39483d504fac0ac0a}{}\label{classData_a9eaa4c35a1bb04a39483d504fac0ac0a}
+
+
+Inicializa o objeto com a data informada pelo usuário. 
+
+
+
+\subsection{Member Function Documentation}
+\index{Data@{Data}!proximo\+Dia@{proximo\+Dia}}
+\index{proximo\+Dia@{proximo\+Dia}!Data@{Data}}
+\subsubsection[{\texorpdfstring{proximo\+Dia()}{proximoDia()}}]{\setlength{\rightskip}{0pt plus 5cm}void Data\+::proximo\+Dia (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classData_a9d7a1ba5561e5a1cfb7bc0162c76a7c5}{}\label{classData_a9d7a1ba5561e5a1cfb7bc0162c76a7c5}
+\index{Data@{Data}!qnt\+Dias\+Mes@{qnt\+Dias\+Mes}}
+\index{qnt\+Dias\+Mes@{qnt\+Dias\+Mes}!Data@{Data}}
+\subsubsection[{\texorpdfstring{qnt\+Dias\+Mes(int mes, int ano)}{qntDiasMes(int mes, int ano)}}]{\setlength{\rightskip}{0pt plus 5cm}int Data\+::qnt\+Dias\+Mes (
+\begin{DoxyParamCaption}
+\item[{int}]{mes, }
+\item[{int}]{ano}
+\end{DoxyParamCaption}
+)}\hypertarget{classData_a8471bef98166420ae3be64396861a8b8}{}\label{classData_a8471bef98166420ae3be64396861a8b8}
+
+
+Retorna a quantidade de dias em um mês e ano especifico. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mes} & \+: int -\/ mês a ser descoberto a quantidade de dias \\
+\hline
+{\em ano} & \+: int -\/ ano do mes a ser descoberto a quantidade de dias \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+quantidade de dias no mês e ano passado por parametro 
+\end{DoxyReturn}
+\index{Data@{Data}!somar\+Anos@{somar\+Anos}}
+\index{somar\+Anos@{somar\+Anos}!Data@{Data}}
+\subsubsection[{\texorpdfstring{somar\+Anos(int quantidade)}{somarAnos(int quantidade)}}]{\setlength{\rightskip}{0pt plus 5cm}void Data\+::somar\+Anos (
+\begin{DoxyParamCaption}
+\item[{int}]{quantidade}
+\end{DoxyParamCaption}
+)}\hypertarget{classData_a625e88a6e13f94a2c6d03a3784a0f940}{}\label{classData_a625e88a6e13f94a2c6d03a3784a0f940}
+
+
+Soma X anos a data. 
+
+Converte a quantidade de anos recebida em dias, ajustando os anos bissestos 
+\begin{DoxyParams}{Parameters}
+{\em quantidade} & \+: int -\/ Quantidade de anos a serem acrecentados a data \\
+\hline
+\end{DoxyParams}
+\index{Data@{Data}!somar\+Dias@{somar\+Dias}}
+\index{somar\+Dias@{somar\+Dias}!Data@{Data}}
+\subsubsection[{\texorpdfstring{somar\+Dias(int quantidade)}{somarDias(int quantidade)}}]{\setlength{\rightskip}{0pt plus 5cm}void Data\+::somar\+Dias (
+\begin{DoxyParamCaption}
+\item[{int}]{quantidade}
+\end{DoxyParamCaption}
+)}\hypertarget{classData_a69f64da1089e3281d0c0114533cd0ae1}{}\label{classData_a69f64da1089e3281d0c0114533cd0ae1}
+
+
+Soma X dias a data. 
+
+Soma os dias as datas e valida a data 29/02 
+\begin{DoxyParams}{Parameters}
+{\em quantidade} & \+: int -\/ Quantidade de dias a serem acrecentados a data \\
+\hline
+\end{DoxyParams}
+\index{Data@{Data}!somar\+Meses@{somar\+Meses}}
+\index{somar\+Meses@{somar\+Meses}!Data@{Data}}
+\subsubsection[{\texorpdfstring{somar\+Meses(int quantidade)}{somarMeses(int quantidade)}}]{\setlength{\rightskip}{0pt plus 5cm}void Data\+::somar\+Meses (
+\begin{DoxyParamCaption}
+\item[{int}]{quantidade}
+\end{DoxyParamCaption}
+)}\hypertarget{classData_a88bee1060434fa6447c909c35cbfd3fe}{}\label{classData_a88bee1060434fa6447c909c35cbfd3fe}
+
+
+Soma X meses a data. 
+
+Converte a quantidade de meses em anos e usa o metodo \hyperlink{classData_a625e88a6e13f94a2c6d03a3784a0f940}{somar\+Anos(int)}, depois adiciona o retante dos meses se necessário e valida a data 29/02 
+\begin{DoxyParams}{Parameters}
+{\em quantidade} & \+: int -\/ Quantidade de meses a serem acrecentados a data \\
+\hline
+\end{DoxyParams}
+\index{Data@{Data}!valida\+Data@{valida\+Data}}
+\index{valida\+Data@{valida\+Data}!Data@{Data}}
+\subsubsection[{\texorpdfstring{valida\+Data(int dia, int mes, int ano)}{validaData(int dia, int mes, int ano)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Data\+::valida\+Data (
+\begin{DoxyParamCaption}
+\item[{int}]{dias, }
+\item[{int}]{mes, }
+\item[{int}]{ano}
+\end{DoxyParamCaption}
+)}\hypertarget{classData_a519fefa4af2ac86d1edf9c657be6090a}{}\label{classData_a519fefa4af2ac86d1edf9c657be6090a}
+
+
+Valida datas evitando datas como 29/2/2018. 
+
+\begin{DoxyReturn}{Returns}
+true -\/ Se a data for valida ~\newline
+ false -\/ Se a data não existir 
+\end{DoxyReturn}
+
+
+\subsection{Friends And Related Function Documentation}
+\index{Data@{Data}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Data@{Data}}
+\subsubsection[{\texorpdfstring{operator$<$$<$}{operator<<}}]{\setlength{\rightskip}{0pt plus 5cm}ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{ostream \&}]{o, }
+\item[{{\bf Data} const}]{Data}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}\hypertarget{classData_a96d440df38e5aa517be9797ee9a80e0b}{}\label{classData_a96d440df38e5aa517be9797ee9a80e0b}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{Data_8h}{Data.\+h}\item 
+src/\hyperlink{Data_8cpp}{Data.\+cpp}\end{DoxyCompactItemize}

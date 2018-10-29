@@ -1,11 +1,16 @@
 #include <Sorteadora.h>
 
-int Sorteadora::totalSorteados = 21;
 /**
-	Gera valores aleatorios de 1 a 6
+* @file Agenda.cpp
+* @brief Classe que representa a maquina sorteadora do bingo
+* @author Jerffeson
+*/
 
-	Retorno:
-		int - Valor gerado;
+int Sorteadora::totalSorteados = 0;
+
+/**
+* @brief Gera valores aleatorios de 1 a 99
+* @return int - Valor gerado;
 */
 int Sorteadora::sortear() {
 
@@ -13,7 +18,7 @@ int Sorteadora::sortear() {
 
 	for (int i = 0; i < totalSorteados; i++) {
 		
-		if(aux == valoresSorteados[i]) {
+		if(aux == valoresSorteados[i]) { // Caso o valor ja tenha sido gerado, gera um novo
 			aux = (rand() % 99) + 1;
 			i = 0;
 		}

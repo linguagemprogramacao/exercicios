@@ -1,0 +1,25 @@
+\hypertarget{Biblioteca_8h}{}\section{include/\+Biblioteca.h File Reference}
+\label{Biblioteca_8h}\index{include/\+Biblioteca.\+h@{include/\+Biblioteca.\+h}}
+{\ttfamily \#include $<$string$>$}\\*
+{\ttfamily \#include $<$iostream$>$}\\*
+{\ttfamily \#include \char`\"{}Livro.\+h\char`\"{}}\\*
+Include dependency graph for Biblioteca.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classBiblioteca}{Biblioteca}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{Biblioteca_8h_a47e5acad2fff9984f24dcd86fb965563}{M\+A\+X\+\_\+\+L\+I\+V\+R\+OS}~100
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\index{Biblioteca.\+h@{Biblioteca.\+h}!M\+A\+X\+\_\+\+L\+I\+V\+R\+OS@{M\+A\+X\+\_\+\+L\+I\+V\+R\+OS}}
+\index{M\+A\+X\+\_\+\+L\+I\+V\+R\+OS@{M\+A\+X\+\_\+\+L\+I\+V\+R\+OS}!Biblioteca.\+h@{Biblioteca.\+h}}
+\subsubsection[{\texorpdfstring{M\+A\+X\+\_\+\+L\+I\+V\+R\+OS}{MAX_LIVROS}}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+A\+X\+\_\+\+L\+I\+V\+R\+OS~100}\hypertarget{Biblioteca_8h_a47e5acad2fff9984f24dcd86fb965563}{}\label{Biblioteca_8h_a47e5acad2fff9984f24dcd86fb965563}

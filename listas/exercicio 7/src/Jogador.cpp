@@ -1,14 +1,24 @@
 #include <Jogador.h>
 
+
+/**
+* @file Agenda.cpp
+* @brief Classe que representa um jogador do bingo
+* @author Jerffeson
+*/
+
 Jogador::Jogador() {
 	
 }
 
+/**
+* @brief inicia o jogador e suas cartelas
+* @param nome : String - nome do jogador
+* @param qntCartelas : quantidade de cartelas do jogador
+*/
 Jogador::Jogador(string nome, int qntCartelas) {
 	this->nome = nome;
 	this->qntCartelas = qntCartelas;
-
-	
 
 	for (int i = 0; i < qntCartelas; i++) {
 		Cartela c;
@@ -17,15 +27,22 @@ Jogador::Jogador(string nome, int qntCartelas) {
 
 }
 
+/**
+* @brief Marca as cartelas do jogador com o valor passado por parametro
+* @param valor : int - Valor a ser marcado na cartela
+*/
 void Jogador::marcarCartela(int valor) {
 
 	for (int i = 0; i < this->qntCartelas; i++) {
 		cartelas[i].marcarCartela(valor);
-
 	}
 
 }
 
+/**
+* @bief Verificar se o jogador tem alguma cartela completa e a imprime no console
+* @return true - Se o jogador tiver alguma cartela completa <br /> false - se a cartela não tiver completa
+*/
 bool Jogador::verificarCartela() {
 	cout << "\nJogador: " << this->nome << ": "<< endl;
 	for (int i = 0; i < this->qntCartelas; i++) {

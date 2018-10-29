@@ -1,0 +1,24 @@
+\hypertarget{Data_8h}{}\section{include/\+Data.h File Reference}
+\label{Data_8h}\index{include/\+Data.\+h@{include/\+Data.\+h}}
+{\ttfamily \#include $<$chrono$>$}\\*
+{\ttfamily \#include $<$iostream$>$}\\*
+Include dependency graph for Data.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classData}{Data}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef std\+::chrono\+::system\+\_\+clock \hyperlink{Data_8h_a0f050ace4b9bcb09af0120f1fcc8df1c}{Clock}
+\end{DoxyCompactItemize}
+
+
+\subsection{Typedef Documentation}
+\index{Data.\+h@{Data.\+h}!Clock@{Clock}}
+\index{Clock@{Clock}!Data.\+h@{Data.\+h}}
+\subsubsection[{\texorpdfstring{Clock}{Clock}}]{\setlength{\rightskip}{0pt plus 5cm}typedef std\+::chrono\+::system\+\_\+clock {\bf Clock}}\hypertarget{Data_8h_a0f050ace4b9bcb09af0120f1fcc8df1c}{}\label{Data_8h_a0f050ace4b9bcb09af0120f1fcc8df1c}

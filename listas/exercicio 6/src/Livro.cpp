@@ -1,5 +1,11 @@
 #include "Livro.h"
 
+/**
+* @file Livro.cpp
+* @brief Classe que representa um Livro na biblioteca
+* @author Jerffeson
+*/
+
 Livro::Livro() {
 
 }

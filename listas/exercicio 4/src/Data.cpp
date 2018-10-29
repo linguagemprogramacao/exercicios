@@ -1,6 +1,14 @@
 #include "Data.h"
 
+/**
+* @file Data.cpp
+* @brief Classe que representa uma Data
+* @author Jerffeson
+*/
 
+/**
+* @brief  Inicializa o objeto com a data atual
+*/
 Data::Data (){
 
 	auto now = Clock::now();
@@ -8,11 +16,15 @@ Data::Data (){
     struct tm *parts = std::localtime(&now_c);
 
     this->ano = 1900 +  parts->tm_year; // O tm_ano retorna a quantidade de anos entre o AnoAtual - 1900;
-    this->mes = parts->tm_mon + 1; 			// Inicia em 0
+    this->mes = parts->tm_mon + 1; 		// O tm_mon inicia em 0
     this->dia = parts->tm_mday;
 
 }
 
+/**
+* @brief  Inicializa o objeto com a data informada pelo usuário
+*/
+Dat
 Data::Data(int dia, int mes, int ano) {
 	if(validaData(dia, mes, ano)) {
 		this->dia = dia;
@@ -24,7 +36,9 @@ Data::Data(int dia, int mes, int ano) {
 }
 
 /**
-* Soma X anos a data
+* @brief Soma X anos a data.
+* @details Converte a quantidade de anos recebida em dias, ajustando os anos bissestos
+* @param quantidade : int - Quantidade de anos a serem acrecentados a data
 */
 void Data::somarAnos(int quantidade) {
 
@@ -36,7 +50,7 @@ void Data::somarAnos(int quantidade) {
 		totalDias +=365;
 
 		if(validaData(29, 2, this->ano+aux)) {
-			totalDias++; // O ano tem um dia a mais, pois é bissesto;
+			totalDias++; // O ano tem um dia a mais, pois é bissesto
 		}
 
 	}
@@ -45,6 +59,11 @@ void Data::somarAnos(int quantidade) {
 
 }
 
+/**
+* @brief Soma X meses a data.
+* @details Converte a quantidade de meses em anos e usa o metodo somarAnos(int), depois adiciona o retante dos meses se necessário e valida a data 29/02
+* @param quantidade : int - Quantidade de meses a serem acrecentados a data
+*/
 void Data::somarMeses(int quantidade) {
 
 	somarAnos(quantidade/12);
@@ -66,6 +85,11 @@ void Data::somarMeses(int quantidade) {
 
 }
 
+/**
+* @brief Soma X dias a data.
+* @details Soma os dias as datas e valida a data 29/02
+* @param quantidade : int - Quantidade de dias a serem acrecentados a data
+*/
 void Data::somarDias(int quantidade) {
 
 	while(quantidade > 0) {
@@ -77,14 +101,14 @@ void Data::somarDias(int quantidade) {
 			quantidade--;
 		}
 
-		if (this->dia >= diasMes and quantidade > 0) {
+		if (this->dia >= diasMes and quantidade > 0) { // Faz a virada de mês na contagem de dias
 			this->dia = 1;
 			this->mes++;
 			quantidade--;
 			
 		}
 		
-		if (this->mes > 12) {
+		if (this->mes > 12) { //Faz a virada de anos na contagem de meses 
 			this->ano++;
 			this->mes = 1;
 		}
@@ -96,6 +120,12 @@ void Data::proximoDia() {
 	somarDias(1);
 }
 
+/**
+* @brief Retorna a quantidade de dias em um mês e ano especifico
+* @param mes : int - mês a ser descoberto a quantidade de dias
+* @param ano : int - ano do mes a ser descoberto a quantidade de dias
+* @return quantidade de dias no mês e ano passado por parametro
+*/
 int Data::qntDiasMes(int mes, int ano) {
 
     int dias = 0;
@@ -120,8 +150,8 @@ int Data::qntDiasMes(int mes, int ano) {
 }
 
 /**
-* Valida datas
-* Evita datas como 29/2/2018
+* @brief Valida datas evitando datas como 29/2/2018
+* @return true - Se a data for valida <br /> false - Se a data não existir
 */
 bool Data::validaData(int dias, int mes, int ano) {
 

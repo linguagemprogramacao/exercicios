@@ -1,15 +1,24 @@
 #include <Cartela.h>
 #include <cstdlib>
 
+/**
+* @file Agenda.cpp
+* @brief Classe que representa uma cartela do bingo
+* @author Jerffeson
+*/
 
-
+/**
+* @brief Inicia uma cartela
+*/
 Cartela::Cartela() {
 
 	iniciarCartela();
 
 }
 
-
+/**
+* @brief Marca na cartela o valor recebido como parametro, caso exista
+*/
 void Cartela::marcarCartela(int valor) {
 
 	for (int j = 0; j < 15; j++) {
@@ -22,7 +31,7 @@ void Cartela::marcarCartela(int valor) {
 }
 
 /**
-	Inicia os valores da cartela
+* @bief Inicia os valores da cartela
 */
 void Cartela::iniciarCartela() {
 

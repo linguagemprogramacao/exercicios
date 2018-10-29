@@ -1,5 +1,11 @@
 #include "Biblioteca.h"
 
+/**
+* @brief Inicializa a biblioteca com 8 livros
+* @details Livros: A Culpa é das Estrelas;
+<br />O Ladrão de Raios (Vol. 1); <br />A Batalha do Apocalipse; <br />Harry Potter e a Pedra Filosofal;
+<br />O Desafio De Ferro; <br />Jogos Vorazes (Vol. 1); <br />Divergente; <br />O Código da Vinci;
+*/
 Biblioteca::Biblioteca() {
 
 	Livro livro1("A Culpa é das Estrelas", "John Green", "1", "Intrínseca",	2012, "978-85-8057-226-1", 5);
@@ -24,7 +30,12 @@ Biblioteca::Biblioteca() {
 
 }
 
+/**
+* @brief Busca um livro pelo nome (ou uma parte do nome) e imprime no console
+* @param nome : String - nome do livro a ser buscado
+*/
 void Biblioteca::buscarLivroNome(string nome) {
+
 	unsigned int aux = nome.length();
 	bool encontrado = false;
 	
@@ -53,16 +64,66 @@ void Biblioteca::buscarLivroNome(string nome) {
 	
 }
 
+/**
+* @brief Busca um livro pelo ISBN (ou uma parte do dele) e imprime no console
+* @param isbn : String - ISBN do livro a ser buscado
+*/
 void Biblioteca::buscarLivroISBN(string isbn) {
 
+	unsigned int aux = isbn.length();
+	bool encontrado = false;
+	
+	if(aux == 1) { // impedi substr(0, 0)
+		aux = 2;
+	}
+	
+	for(int i = 0; i < totalLivros; i++) {
+		
+		if(aux >= livros[i].getISBN().length()) {
+			if(isbn.compare(livros[i].getISBN()) == 0) {
+				cout << "Livro encontrado: " << livros[i] << endl;
+				encontrado = true;
+			}
+		} else if (isbn.substr(0, aux-1).compare(livros[i].getISBN().substr(0, aux-1)) == 0) {
+			
+			cout << "Livro encontrado: " << livros[i] << endl;
+			encontrado = true;
 
+		}
+		
+	}
+	if(!encontrado) {
+		cout << "Livro não encontrado" << endl;
+	}
 
 }
 
+/**
+* @brief Verifica se um livro existe, se existe imprime no console
+* @param nome : String - Nome do livro a ser buscado
+*/
 void Biblioteca::verificarExiste(string nome) {
-
+	buscarLivroNome(string nome);
 }
 
+/**
+* @brief Lista todos os livros 
+*/
+void Biblioteca::listarLivros() {
+	for(int i = 0; i < totalLivros; i++) {
+		cout << "Indice ["<< i <<"] encontrado: " << livros[i] << endl;
+	}
+}
+
+/**
+* @brief Imprime o livro comforme o indice informado, exibindo a quantidade de exemplares disponiveis
+*/
 void Biblioteca::verificarQuantidade(int i) {
+
+	if (i < 0 or i > totalLivros) {
+		cout << "Valor Invalido." << endl;
+	} else {
+		out << "Livro encontrado: " << livros[i] << endl;
+	}
 
 }

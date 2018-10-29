@@ -1,6 +1,12 @@
 #include "Biblioteca.h"
 #include <iostream>
 
+
+/**
+* @sa https://github.com/linguagemprogramacao/exercicios
+*/
+
+
 using namespace std;
 
 int main (int argc, char const * argv []) {
@@ -83,18 +89,15 @@ int main (int argc, char const * argv []) {
 
 			case '4':
 
-				cout << "Nome do livro que deseja verificar: ";
-				
-				cin.ignore(1, '\n');
-				getline(cin, nome);
+				biblioteca.listarLivros();
 
-				if (nome.length() > 0) {
-					biblioteca.buscarLivroNome(nome);
-				} else {
-					cout << "Valor invalido." << endl;
-				}
+				cout << "Indice do livro que deseja verificar: ";
 
+				int i = -1;
+				cin >> i;
 				
+				biblioteca.verificarQuantidade(i);
+
 				break;
 
 			case '5':

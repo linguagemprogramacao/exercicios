@@ -15,12 +15,13 @@ class Biblioteca {
 	int totalLivros = 0;
 
 	public :
-		/* */
+		
 		Biblioteca();
 		void buscarLivroNome(string nome);
 		void buscarLivroISBN(string isbn);
 		void verificarExiste(string nome);
 		void verificarQuantidade(int i);
+		void listarLivros();
 		
 
 };
