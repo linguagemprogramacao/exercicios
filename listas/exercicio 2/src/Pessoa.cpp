@@ -1,5 +1,11 @@
 #include "Pessoa.h"
 
+/**
+* @file Pessoa.cpp
+* @brief Classe que representa uma Pessoa(Contato) na agenda
+* @author Jerffeson
+*/
+
 Pessoa::Pessoa(string nome, int idade, double altura) {
 
 	this->nome = nome;
@@ -43,6 +49,9 @@ ostream& operator<< (ostream &o, Pessoa const pessoa) {
 	return o;
 }
 
+/**
+* @brief Sobrecarga necessario para a ação da linha 18 do arquivo Agencia.cpp
+*/
 Pessoa& Pessoa::operator=(const Pessoa &pessoa ){
 
 	this->nome = pessoa.nome;

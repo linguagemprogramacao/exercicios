@@ -5,6 +5,8 @@
 
 using namespace std;
 
+
+
 class Carro {
 
 private:
@@ -21,8 +23,8 @@ public:
 	void mover(double distancia);
 	void abastecer(double quantidade);
 	double getQtdeCombustivel();
-	double getAutonomia();
-	double getDistanciaPercorrida();
+	double getAutonomia();				/**< @return Quantos KM são possiveis com o combustivel atual */
+	double getDistanciaPercorrida(); 
 
 };
 

@@ -1,8 +1,10 @@
 #ifndef Data_H
 #define Data_H
 
-#include <string>
-#include <ostream>
+#include <chrono>
+#include <iostream>
+
+typedef std::chrono::system_clock Clock;
 
 using namespace std;
 
@@ -15,16 +17,16 @@ private:
 
 
 public:
-	// Data();
-	// Data(int dia, int mes, int ano);
-	// int& getDia();
-	// void setDia(int dia);
-	// int& getMes();
-	// void setMes(int mes);
-	// int& getAno();
-	// void setAno(int altura);
+	Data();
+	Data(int dia, int mes, int ano);
 
-	// friend ostream& operator<< (ostream &o, Data const Data);
+	bool validaData(int dia, int mes, int ano);
+	void somarAnos(int quantidade);
+	void somarMeses(int quantidade);
+	void somarDias(int quantidade);
+	int qntDiasMes(int mes, int ano);
+	void proximoDia();
+	friend ostream& operator<< (ostream &o, Data const Data);
 
 
 };
