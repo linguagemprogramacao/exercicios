@@ -7,7 +7,7 @@ template <typename T>
 class Lista {
 private:
     int m_total_elementos;
-    T * inicio;
+    T* inicio;
     T* final;
 
 public:
@@ -17,7 +17,7 @@ public:
     T& removerDoInicio();
     T& removerDoFinal();
     bool vazio();
-    int Tamanho();
+    int tamanho();
 
 };
 
@@ -30,7 +30,8 @@ Lista<T>::Lista(){
 
 template<typename T>
 Lista<T>::~Lista() {
-
+	delete inicio;
+	delete final;
 }
 
 template<typename T>
@@ -61,14 +62,19 @@ void Lista<T>::inserirNoFinal(T& no) {
 }
 
 template<typename T>
-int Lista<T>::Tamanho() {
+int Lista<T>::tamanho() {
 	return m_total_elementos;
 }
 
 
 template<typename T>
 T& Lista<T>::removerDoInicio() {
-	return (*inicio);
+
+	T* aux  = inicio;
+
+	inicio = inicio->getNext();
+	m_total_elementos--;	
+	return (*aux);
 }
 
 template<typename T>
