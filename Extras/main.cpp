@@ -23,6 +23,10 @@ int main(int argc, char const *argv[])
 	Node<int> n4(30);
 	f.enfileira(n4);
 
+
+	Node<int> n5(40);
+	f.enfileira(n2);
+
 	cout << "Lista vazia: " << f.vazio() << endl;
 	cout << "Lista Cheia: " << f.cheio() << endl;
 

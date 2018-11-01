@@ -6,6 +6,8 @@
 #include <memory>
 #include "lista.h"
 
+using namespace std;
+
 template <typename T>
 class Fila{
 	private:
@@ -36,7 +38,13 @@ Fila<T>::~Fila(){}
 
 template<typename T>
 void Fila<T>::enfileira(T& novo_){
-	this->m_elementos->inserirNoFinal(novo_);
+	if(tamanho() >= m_capacidade) {
+		cout << "Fila já chegou no seu limite." << endl;
+	} else {
+		this->m_elementos->inserirNoFinal(novo_);
+		cout << "Elemento " << novo_.getValue() << " foi adicionado com sucesso." << endl;
+	}
+	
 }
 
 template<typename T>
