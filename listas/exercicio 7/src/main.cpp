@@ -56,7 +56,7 @@ int main (int argc, char const * argv []) {
 				Jogador j(nome, qntCartelas);
 
 				bingo.addJogador(j);
-				sair = true;
+				
 
 				}
 
@@ -65,6 +65,7 @@ int main (int argc, char const * argv []) {
 			case '2':{
 
 				bingo.jogar();
+				sair = true;
 
 				}
 				break;

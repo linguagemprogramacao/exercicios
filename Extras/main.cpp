@@ -30,16 +30,13 @@ int main(int argc, char const *argv[])
 	cout << "\nLista vazia: " << f.vazio() << endl;
 	cout << "Lista Cheia: " << f.cheio() << endl;
 
-
 	cout << f.desenfileira().getValue() << endl;
 
 	cout << f.desenfileira().getValue() << endl;
 
-	cout << "\nRemovendo: " << f.m_elementos->removerDoFinal().getValue() << endl;
+	//cout << "\nRemovendo: " << f.m_elementos->removerDoFinal().getValue() << endl;
 
-	cout << "\nRemovendo: " << f.m_elementos->removerDoFinal().getValue() << endl;
-
-	
+	//cout << "\nRemovendo: " << f.m_elementos->removerDoFinal().getValue() << endl;
 
 	//cout << f.desenfileira().getValue() << endl;
 

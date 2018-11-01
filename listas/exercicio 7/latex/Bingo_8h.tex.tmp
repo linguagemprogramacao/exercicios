@@ -1,0 +1,14 @@
+\hypertarget{Bingo_8h}{}\section{include/\+Bingo.h File Reference}
+\label{Bingo_8h}\index{include/\+Bingo.\+h@{include/\+Bingo.\+h}}
+{\ttfamily \#include $<$iostream$>$}\\*
+{\ttfamily \#include \char`\"{}Jogador.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Sorteadora.\+h\char`\"{}}\\*
+Include dependency graph for Bingo.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classBingo}{Bingo}
+\end{DoxyCompactItemize}

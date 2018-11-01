@@ -1,0 +1,107 @@
+\hypertarget{classJogador}{}\section{Jogador Class Reference}
+\label{classJogador}\index{Jogador@{Jogador}}
+
+
+{\ttfamily \#include $<$Jogador.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classJogador_a58c85bc7bec4ccdb0e59a21a689b48bd}{get\+Qnt\+Cartelas} ()
+\item 
+\hyperlink{classJogador_a94a4939138ce04d2f3ceb68257517ac1}{Jogador} ()
+\item 
+\hyperlink{classJogador_a9ea28b90554f801624dbc459cc467c67}{Jogador} (string nome, int qnt\+Cartelas)
+\begin{DoxyCompactList}\small\item\em inicia o jogador e suas cartelas \end{DoxyCompactList}\item 
+bool \hyperlink{classJogador_a642eab86d4c7b23ba409753f488d9b71}{verificar\+Cartela} ()
+\item 
+void \hyperlink{classJogador_a05712852ebe27ac61c27652c4e2a7ac3}{marcar\+Cartela} (int valor)
+\begin{DoxyCompactList}\small\item\em Marca as cartelas do jogador com o valor passado por parametro. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+ostream \& \hyperlink{classJogador_a35b487f3055403dda3edf022e724b7ad}{operator$<$$<$} (ostream \&o, \hyperlink{classJogador}{Jogador} const \hyperlink{classJogador}{Jogador})
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Jogador@{Jogador}!Jogador@{Jogador}}
+\index{Jogador@{Jogador}!Jogador@{Jogador}}
+\subsubsection[{\texorpdfstring{Jogador()}{Jogador()}}]{\setlength{\rightskip}{0pt plus 5cm}Jogador\+::\+Jogador (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classJogador_a94a4939138ce04d2f3ceb68257517ac1}{}\label{classJogador_a94a4939138ce04d2f3ceb68257517ac1}
+\index{Jogador@{Jogador}!Jogador@{Jogador}}
+\index{Jogador@{Jogador}!Jogador@{Jogador}}
+\subsubsection[{\texorpdfstring{Jogador(string nome, int qnt\+Cartelas)}{Jogador(string nome, int qntCartelas)}}]{\setlength{\rightskip}{0pt plus 5cm}Jogador\+::\+Jogador (
+\begin{DoxyParamCaption}
+\item[{string}]{nome, }
+\item[{int}]{qnt\+Cartelas}
+\end{DoxyParamCaption}
+)}\hypertarget{classJogador_a9ea28b90554f801624dbc459cc467c67}{}\label{classJogador_a9ea28b90554f801624dbc459cc467c67}
+
+
+inicia o jogador e suas cartelas 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nome} & \+: String -\/ nome do jogador \\
+\hline
+{\em qnt\+Cartelas} & \+: quantidade de cartelas do jogador \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{Jogador@{Jogador}!get\+Qnt\+Cartelas@{get\+Qnt\+Cartelas}}
+\index{get\+Qnt\+Cartelas@{get\+Qnt\+Cartelas}!Jogador@{Jogador}}
+\subsubsection[{\texorpdfstring{get\+Qnt\+Cartelas()}{getQntCartelas()}}]{\setlength{\rightskip}{0pt plus 5cm}int Jogador\+::get\+Qnt\+Cartelas (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classJogador_a58c85bc7bec4ccdb0e59a21a689b48bd}{}\label{classJogador_a58c85bc7bec4ccdb0e59a21a689b48bd}
+\index{Jogador@{Jogador}!marcar\+Cartela@{marcar\+Cartela}}
+\index{marcar\+Cartela@{marcar\+Cartela}!Jogador@{Jogador}}
+\subsubsection[{\texorpdfstring{marcar\+Cartela(int valor)}{marcarCartela(int valor)}}]{\setlength{\rightskip}{0pt plus 5cm}void Jogador\+::marcar\+Cartela (
+\begin{DoxyParamCaption}
+\item[{int}]{valor}
+\end{DoxyParamCaption}
+)}\hypertarget{classJogador_a05712852ebe27ac61c27652c4e2a7ac3}{}\label{classJogador_a05712852ebe27ac61c27652c4e2a7ac3}
+
+
+Marca as cartelas do jogador com o valor passado por parametro. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em valor} & \+: int -\/ Valor a ser marcado na cartela \\
+\hline
+\end{DoxyParams}
+\index{Jogador@{Jogador}!verificar\+Cartela@{verificar\+Cartela}}
+\index{verificar\+Cartela@{verificar\+Cartela}!Jogador@{Jogador}}
+\subsubsection[{\texorpdfstring{verificar\+Cartela()}{verificarCartela()}}]{\setlength{\rightskip}{0pt plus 5cm}bool Jogador\+::verificar\+Cartela (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classJogador_a642eab86d4c7b23ba409753f488d9b71}{}\label{classJogador_a642eab86d4c7b23ba409753f488d9b71}
+Verificar se o jogador tem alguma cartela completa e a imprime no console \begin{DoxyReturn}{Returns}
+true -\/ Se o jogador tiver alguma cartela completa ~\newline
+ false -\/ se a cartela não tiver completa 
+\end{DoxyReturn}
+
+
+\subsection{Friends And Related Function Documentation}
+\index{Jogador@{Jogador}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Jogador@{Jogador}}
+\subsubsection[{\texorpdfstring{operator$<$$<$}{operator<<}}]{\setlength{\rightskip}{0pt plus 5cm}ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{ostream \&}]{o, }
+\item[{{\bf Jogador} const}]{Jogador}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}\hypertarget{classJogador_a35b487f3055403dda3edf022e724b7ad}{}\label{classJogador_a35b487f3055403dda3edf022e724b7ad}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{Jogador_8h}{Jogador.\+h}\item 
+src/\hyperlink{Jogador_8cpp}{Jogador.\+cpp}\end{DoxyCompactItemize}
