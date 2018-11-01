@@ -1,30 +1,30 @@
 #include "fila.h"
-#include "No.h"
 
 #include <iostream>
 
-
+#include <string>
 
 int main(int argc, char const *argv[])
 {
 
-	Fila<Node<int>> f(4);
+	Fila<Node<string>> f(4);
 
 	f.vazio();
-	Node<int> n(10);
+	Node<string> n("Jerffeson");
 	f.enfileira(n);
 
-	Node<int> n2(15);
+	Node<string> n2("André");
 	f.enfileira(n2);
 
-	Node<int> n3(20);
+	Node<string> n3("Fernanda");
 	f.enfileira(n3);
 
-	Node<int> n4(30);
+	Node<string> n4("Allan");
 	f.enfileira(n4);
 
-	cout << "\nTentando add 40 na fila." << endl;
-	Node<int> n5(40);
+	
+	Node<string> n5("Silvio");
+	cout << "\nTentando add "<< n5.getValue() <<" na fila." << endl;
 	f.enfileira(n2);
 
 	cout << "\nLista vazia: " << f.vazio() << endl;
@@ -35,12 +35,28 @@ int main(int argc, char const *argv[])
 
 	cout << f.desenfileira().getValue() << endl;
 
-	cout << f.desenfileira().getValue() << endl;
+	cout << "\nRemovendo: " << f.m_elementos->removerDoFinal().getValue() << endl;
+
+	cout << "\nRemovendo: " << f.m_elementos->removerDoFinal().getValue() << endl;
+
+	
+
+	//cout << f.desenfileira().getValue() << endl;
+
+	//cout << f.desenfileira().getValue() << endl;
+
+	Node<string> n6("Novo Jerffeson");
+	f.enfileira(n6);
+
+	f.m_elementos->inserirNoInicio(n6);
 
 	cout << f.desenfileira().getValue() << endl;
 
 	cout << "\vLista vazia: " << f.vazio() << endl;
 	cout << "Lista Cheia: " << f.cheio() << endl;
+
+
+
 
 	
 	//cout << f.desenfileira2().getValue();

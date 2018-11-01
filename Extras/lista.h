@@ -13,6 +13,7 @@ private:
 public:
 	Lista();
 	~Lista();
+	void inserirNoInicio(T& no);
 	void inserirNoFinal(T& no);
     T& removerDoInicio();
     T& removerDoFinal();
@@ -30,8 +31,35 @@ Lista<T>::Lista(){
 
 template<typename T>
 Lista<T>::~Lista() {
-	delete inicio;
-	delete final;
+
+}
+
+template<typename T>
+void Lista<T>::inserirNoInicio(T& no) {
+
+	if(m_total_elementos == 0) {
+
+		inicio = &no;
+		final = &no;
+	
+	} else if (m_total_elementos == 1){
+
+		inicio = &no;
+		inicio->setNext(final);
+
+		final->setPrevious(inicio);
+
+	} else {
+
+
+		no.setNext(inicio);
+		inicio->setPrevious(&no);
+		inicio = &no;
+
+	}
+
+	m_total_elementos++;	
+
 }
 
 template<typename T>
@@ -77,9 +105,18 @@ T& Lista<T>::removerDoInicio() {
 	return (*aux);
 }
 
+
+
 template<typename T>
 T& Lista<T>::removerDoFinal() {
-	return (*final);
+
+	T* aux  = final;
+
+	final = final->getPrevious();
+	m_total_elementos--;	
+	return (*aux);
+
+	return (*aux);
 }
 
 template<typename T>
