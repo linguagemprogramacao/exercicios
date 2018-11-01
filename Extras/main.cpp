@@ -3,7 +3,7 @@
 
 #include <iostream>
 
-using namespace std;
+
 
 int main(int argc, char const *argv[])
 {
@@ -23,11 +23,11 @@ int main(int argc, char const *argv[])
 	Node<int> n4(30);
 	f.enfileira(n4);
 
-
+	cout << "\nTentando add 40 na fila." << endl;
 	Node<int> n5(40);
 	f.enfileira(n2);
 
-	cout << "Lista vazia: " << f.vazio() << endl;
+	cout << "\nLista vazia: " << f.vazio() << endl;
 	cout << "Lista Cheia: " << f.cheio() << endl;
 
 
@@ -39,7 +39,7 @@ int main(int argc, char const *argv[])
 
 	cout << f.desenfileira().getValue() << endl;
 
-	cout << "Lista vazia: " << f.vazio() << endl;
+	cout << "\vLista vazia: " << f.vazio() << endl;
 	cout << "Lista Cheia: " << f.cheio() << endl;
 
 	
