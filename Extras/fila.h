@@ -11,12 +11,12 @@ using namespace std;
 template <typename T>
 class Fila{
 	private:
-		
+		Lista<T> * m_elementos;
 		//Não é necessário um atributo para o tamanho da Fila, pois já a Lista já possui esse elemento.
 		int m_capacidade;
 
 	public:
-		Lista<T> * m_elementos;
+		
 		Fila(int capacidade_);
 		~Fila();
 
@@ -42,6 +42,7 @@ Fila<T>::~Fila(){
 template<typename T>
 void Fila<T>::enfileira(T& novo_){
 	if(tamanho() >= m_capacidade) {
+		cout << endl << "\nTentando add "<< novo_.getValue() <<" na fila." << endl;
 		cout << "Fila já chegou no seu limite." << endl;
 	} else {
 		this->m_elementos->inserirNoFinal(novo_);
@@ -52,7 +53,7 @@ void Fila<T>::enfileira(T& novo_){
 
 template<typename T>
 T& Fila<T>::desenfileira(){
-
+	cout << "Chamando o pŕoximo da fila: " << endl;
 	return this->m_elementos->removerDoInicio();	
 	
 }

@@ -22,38 +22,27 @@ int main(int argc, char const *argv[])
 	Node<string> n4("Allan");
 	f.enfileira(n4);
 
-	
 	Node<string> n5("Silvio");
-	cout << "\nTentando add "<< n5.getValue() <<" na fila." << endl;
-	f.enfileira(n2);
+	f.enfileira(n5);
 
 	cout << "\nLista vazia: " << f.vazio() << endl;
-	cout << "Lista Cheia: " << f.cheio() << endl;
+	cout << "Lista Cheia: " << f.cheio() << endl << endl;
 
 	cout << f.desenfileira().getValue() << endl;
 
 	cout << f.desenfileira().getValue() << endl;
 
-	//cout << "\nRemovendo: " << f.m_elementos->removerDoFinal().getValue() << endl;
+	cout << f.desenfileira().getValue() << endl << endl;
 
-	//cout << "\nRemovendo: " << f.m_elementos->removerDoFinal().getValue() << endl;
-
-	//cout << f.desenfileira().getValue() << endl;
-
-	//cout << f.desenfileira().getValue() << endl;
-
-	Node<string> n6("Novo Jerffeson");
+	Node<string> n6("Pedro");
 	f.enfileira(n6);
 
-	f.m_elementos->inserirNoInicio(n6);
+	cout << f.desenfileira().getValue() << endl;
 
 	cout << f.desenfileira().getValue() << endl;
 
 	cout << "\vLista vazia: " << f.vazio() << endl;
 	cout << "Lista Cheia: " << f.cheio() << endl;
-
-
-
 
 	
 	//cout << f.desenfileira2().getValue();
